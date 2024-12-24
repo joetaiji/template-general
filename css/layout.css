@@ -65,13 +65,13 @@ popup-wrap
   padding-bottom: 4rem;
   border-bottom: 1px solid var(--gray-40);
 }
-.pop-total-serch-wrap .search-tit {
+.pop-total-serch-wrap .searcheading-l {
   display: flex;
   font-size: 3.2rem;
   font-weight: 700;
   margin-bottom: 2.4rem;
 }
-.pop-total-serch-wrap .search-tit .btn.sm {
+.pop-total-serch-wrap .searcheading-l .btn.sm {
   font-size: 1.5rem;
   margin-left: auto;
 }
@@ -1207,20 +1207,20 @@ content 공통
   padding-bottom: 2.5rem;
   margin-bottom: 4rem;
 }
-.contents .h-tit {
+.contents .heading-l {
   font-size: 4rem;
   color: #222;
   padding-right: 4rem;
 }
-.contents .h-tit-drop {
+.contents .heading-l-drop {
   display: none;
 }
-.contents .h-tit-drop .drop-btn {
+.contents .heading-l-drop .drop-btn {
   display: flex;
   gap: 0.8rem;
   align-items: center;
 }
-.contents .h-tit-drop .drop-btn::after {
+.contents .heading-l-drop .drop-btn::after {
   content: "";
   display: inline-flex;
   width: 3.2rem;
@@ -1228,15 +1228,15 @@ content 공통
   background: url(../img/layout/ico_h_tit_drop_arr.svg) 0 0/contain no-repeat;
   transition: 0.25s;
 }
-.contents .h-tit-drop.active .drop-btn::after {
+.contents .heading-l-drop.active .drop-btn::after {
   transform: rotate(180deg);
 }
-.contents .h-tit-drop.active .drop-menu {
+.contents .heading-l-drop.active .drop-menu {
   left: auto;
   translate: 0;
   width: 100%;
 }
-.contents .h-tit-drop.active .drop-menu::before {
+.contents .heading-l-drop.active .drop-menu::before {
   display: none;
 }
 .contents .print-btn {
@@ -1614,7 +1614,7 @@ footer
   }
 }
 @media (max-width: 767.98px) {
-  .pop-total-serch-wrap .search-tit {
+  .pop-total-serch-wrap .searcheading-l {
     font-size: 2.4rem;
   }
   .pop-total-serch-wrap .search-text {

@@ -18,7 +18,7 @@ popup-wrap
 //통합검색
 .pop-total-serch-wrap { position: relative;
 	.search-total-top { padding-bottom: 4rem; border-bottom: 1px solid var(--gray-40); }
-	.search-tit { display: flex; font-size: 3.2rem; font-weight: 700; margin-bottom: 2.4rem;
+	.searcheading-l { display: flex; font-size: 3.2rem; font-weight: 700; margin-bottom: 2.4rem;
 		.btn.sm {font-size: 1.5rem; margin-left: auto;}
 	}
 	.sch-input { position: relative;
@@ -408,8 +408,8 @@ content 공통
 
 .contents {	flex: 1; min-width: 1px;
 	.page-title-wrap { position: relative; border-bottom: 1px solid var(--gray-30);  padding-bottom: 2.5rem; margin-bottom: 4rem; }	
-	.h-tit { font-size: 4rem; color: #222; padding-right: 4rem;}
-	.h-tit-drop { display: none;
+	.heading-l { font-size: 4rem; color: #222; padding-right: 4rem;}
+	.heading-l-drop { display: none;
 		.drop-btn { @include flex(.8rem, center);
 			&::after { content: ''; display: inline-flex; width: 3.2rem; height: 3.2rem; background: url(#{$url}/layout/ico_h_tit_drop_arr.svg) 0 0 /contain no-repeat; transition: 0.25s;}			
 		}
@@ -555,7 +555,7 @@ footer
 
 @include media($mobile) {
 	.pop-total-serch-wrap {
-		.search-tit { font-size: 2.4rem;}
+		.searcheading-l { font-size: 2.4rem;}
 		.search-text { padding-top: 3.2rem; height: auto; overflow-y: visible;
 			.sch-info-list { flex-direction: column;
 				.li { padding: 0; width: 100%;}

@@ -28,7 +28,7 @@
   margin-bottom: 0.4rem;
 }
 
-.s-title-1 {
+.heading-m {
   font-size: 2.5rem;
   color: var(--primary-60);
   margin: 3.4rem 0 1.6rem 0;
@@ -36,23 +36,23 @@
   gap: 1rem;
   align-items: center;
 }
-.s-title-1 small {
+.heading-m small {
   font-weight: 400;
   font-size: 1.7rem;
   background: var(--bg-5);
   padding: 0.2rem 1rem;
   border-radius: 0.4rem;
 }
-.s-title-1-sub {
+.heading-m-sub {
   margin-bottom: 2rem;
 }
-.s-title-2 {
+.heading-s {
   font-size: 2.1rem;
   margin: 2.4rem 0 1.6rem;
   position: relative;
   padding-left: 2.2rem;
 }
-.s-title-2::before {
+.heading-s::before {
   content: "";
   position: absolute;
   left: 0;
@@ -61,7 +61,7 @@
   height: 1.2rem;
   background-color: #fff;
 }
-.s-title-2::before {
+.heading-s::before {
   border: 3px solid transparent;
   border-image: linear-gradient(135deg, var(--primary-40), var(--primary-70));
   border-image-slice: 1;
