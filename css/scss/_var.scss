@@ -1,0 +1,81 @@
+@use "mixin";
+:root { 
+    //폰트
+	--fontFamily : "Pretendard GOV", sans-serif;
+    --icon : "remixicon", sans-serif;
+    --fontSize : 1.7rem;
+    --letterSpace : -.025em;
+    --fontColor : var(--gray-70);
+
+	//무채색   
+    --black : #000;
+    --gray-5 : #F8F8F8;
+	--gray-10 : #F0F0F0;
+	--gray-20 : #E4E4E4;
+	--gray-30 : #D8D8D8;
+	--gray-40 : #C6C6C6;
+	--gray-50 : #8E8E8E;
+	--gray-60 : #717171;
+	--gray-70 : #555555;
+    --gray-80 : #2D2D2D;
+    --gray-90 : #1D1D1D;    
+    --white : #fff;
+
+    //블루톤 그레이
+    --bg-5 : #EDF1F5;
+    --bg-10 : #CDD7E4;
+	
+	//칼라
+    --primary : var(--primary-50); 
+    --gray : var(--gray-5);
+    --border : var(--gray-30);
+    --bg : var(--bg-5);
+    --point : var(--point-60); 
+    --danger : #EB003B; 
+    --warning : #FFB724;     
+    --success : #008A1E;     
+    --information : #2768FF;
+	
+	//칼라농도    
+    --primary-5: #eff5ff;
+    --primary-10: #d3e1fb;
+    --primary-20: #a7c4f7;
+    --primary-30: #7ca6f3;
+    --primary-40: #5089ef;
+    --primary-50: #2466ba; //246beb;
+    --primary-60: #1D56BC;
+    --primary-70: #16408d;
+    --primary-80: #0e2b5e;
+    --primary-90: #07152f;
+  
+    --point-5: #FDF2F3;
+    --point-10: #FAD1D3;
+    --point-20: #F5A3A8;
+    --point-30: #F1747C;
+    --point-40: #EC4651;
+    --point-50: #E71825;
+    --point-60: #B9131E;
+    --point-70: #8B0E16;
+    --point-80: #5C0A0F;
+    --point-90: #2E0507;
+    
+	//sns
+	--facebook : #1648AD;
+    --twitter  : #1DA1F2;
+    --blog    : #179911;
+    --kakaotalk : #FAE301;
+    --instagram    : #E5266D;
+    --youtube  : #E52C26;
+
+	//header 높이
+    --headerHeight : 17.2rem;
+
+	//컨테이너 넓이
+    --inner : #{ $web };	    
+ } 
+
+ @include media($pad) {
+    :root { 
+        --headerHeight : 8.5rem;
+    }
+ }

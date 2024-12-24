@@ -1,0 +1,83 @@
+@import "../mixin";
+
+.tabs { margin-bottom: 4rem;
+	>ul { display: flex; }
+	a, button { width: 100%; @include flex(.3rem, center, center); font-size: 1.8rem; text-align: center; padding: 1.5rem; position: relative; line-height: 1.2;
+		&:hover { text-decoration: none; transition: .2s;}		
+	}
+	li.active {		
+		a, button { font-weight: 700; 
+			/* &::after { content: ""; display: block; } */
+		}
+	}
+	/* &.num10 { flex-wrap: wrap;
+		> li {flex: 1 1 20%;}
+	} */
+}
+.depth4 {		
+	>ul{
+		>li { flex: 1; 
+			a, button { height: 5.8rem; background-color: var(--white);	border: 1px solid var(--gray-40); 
+				&:hover { background-color: var(--gray-10); }
+			}
+			
+			&.active { 
+				a, button { border: .3rem solid var(--primary-70); color: var(--primary-70); }
+			}
+			~ li { margin-left: -1px; }
+		}
+	}
+}
+.depth5 { border-bottom: 1px solid var(--gray-30);	
+	>ul{ flex-wrap: wrap;
+		>li { 
+			a, button { border-bottom: .3rem solid transparent; margin-bottom: -1px;
+				&:hover { border-bottom-color: var(--gray-30);}
+			}
+			&.active {
+				a, button { border-bottom-color: var(--primary-70); color: var(--primary-70); }
+			}
+		}
+	}	
+}
+
+@include media($mobile) {
+	.tabs  { 
+		> ul { flex-direction:column; }
+		li { display: none; 			
+			&.active {display: block;
+				a, button{
+					&::before { content: '\ea4e'; font-family: var(--icon); font-size: 2rem; @include pos(rt, 1rem, 50%); font-weight: 400; transition: .2s; }
+					&::after { display: none; }
+				}		
+			}
+			~li { margin: -1px 0 0 0; }
+		}
+		&.active {
+			li  { display: block; }
+			&.active {
+				a, button {
+					&::before { rotate: 180deg; }
+				}
+			}
+		}
+	}
+	.depth5 { border-bottom: 0;
+		li {
+			a, button { border-width: 1px; }
+		}
+		&.active li {
+			a, button { border-color: var(--gray-30); }
+		}
+	}
+}
+
+/* .tab_wrap { 
+	.depth4 { margin-top: 5rem; } 
+	.tab_cont { display: none;
+		&:first-of-type { display: block; } 
+	 }  
+ } 
+.anchor_tab { 
+	&.fixed { position: fixed; top:var(--headerHeight); width:100%;z-index: 1; }   
+ }     */ 

@@ -1,0 +1,102 @@
+@import "mixin";
+
+/* =======================================================================================
+변수
+======================================================================================= */
+@import "var"; 
+
+/* ===========================================================================================
+skip navigation
+=========================================================================================== */
+#skip-nav {
+	color: var(--white); position: fixed; left: 0; top: 0; width: 100%; z-index: 1000; text-align: center;
+
+	a {
+		opacity: 0; position: absolute; left: 0; top: 0; display: block; width: 100%; padding: 1rem; background-color: rgba(0,0,0,.6); transform: translateY(-50px); transition: all .3s ease; font-size: 1.4rem;
+
+		&:active, &:focus, &:hover { opacity: 1; transform: translateY(0); }
+	}
+}
+
+/* ===========================================================================================
+user defined style
+=========================================================================================== */
+
+html {
+	.m-page { display: none; }
+}
+
+$colors: black, white, primary, secondary, tertiary, gray, point, point2, point3;
+@each $color in $colors {
+	.text-#{$color} { color: var(--#{$color}) !important; }
+	.bg-#{$color} { background-color: var(--#{$color}); }
+}
+.hidden, .hdn, .sr-only { @include sr-only; }
+
+.text-bold { font-weight: 700; }
+
+.text-underline { text-decoration: underline!important; }
+
+.keep-all { word-break:keep-all!important;}
+
+.flex { display: flex; flex-wrap: wrap; }
+
+.flex-wrap { flex-wrap: wrap; }
+
+$txts: left, center, right;
+@each $txt in $txts {
+	.text-#{$txt} { text-align: $txt !important;}	
+}
+//기존 스타일
+.ta_l { text-align : left !important;}
+.ta_c { text-align : center !important;}
+.ta_r { text-align : right !important;}
+
+$jcs: center, space-around, space-evenly, space-between, flex-end, flex-start;
+@each $jc in $jcs {
+	.jc-#{$jc} { justify-content: $jc !important;}	
+}
+
+$ais: flex-start, center, flex-end;
+@each $ai in $ais {
+	.ai-#{$ai} { align-items: $ai !important;}	
+}
+
+@for $i from 1 through 20{
+	.w#{$i} { width: $i*1%; }
+}
+
+@for $i from 5 through 20{
+	.w#{$i*5} { width: $i*5%; }
+}
+
+@for $i from 0 through 10{
+	.ml#{$i} { margin-left: $i*.8rem !important; }
+	.mt#{$i} { margin-top: $i*.8rem !important; }
+	.mr#{$i} { margin-right: $i*.8rem !important; }
+	.mb#{$i} { margin-bottom: $i*.8rem !important; }
+}
+.mla { margin-left: auto;}
+.mra { margin-right: auto;}
+.mta { margin-top: auto;}
+.mba { margin-bottom: auto;}
+
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; display: inline-block; max-width: 96%; } 
+
+.iframe {display: block; width: 100%;}
+
+@include media($pad) {
+	html { font-size: 9px; }
+}
+
+@include media($mobile) {
+	html { font-size: 8px; 
+		.w-page,
+		.m-hide {display: none;}
+		.m-page { display: block; }
+	}		
+}
+
+@include media($smobile) {
+	html { font-size: 7px; }
+}

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+.guide header { position: relative; z-index: 0; z-index: 2; color: #fff; text-align: center; }
+
+.guide header::before { position: absolute; left: 50%; top: 0; z-index: -1; width: 1000%; height: 100%; margin-left: -500%; content: ''; background-color: #2f3643; }
+
+.guide header h1 { padding: 5rem 0; }
+
+.guide header .menu { position: relative; z-index: 0; font-size: 1.8rem; padding: 2.5rem 0; color: #fff; }
+
+.guide header .menu::before { position: absolute; left: 50%; top: 0; z-index: -1; width: 1000%; height: 100%; margin-left: -500%; content: ''; height: 1px; background-color: rgba(255, 255, 255, 0.25); }
+
+.guide header .menu a { position: relative; padding: 0 2rem; margin: 0 3rem; font-weight: 400; }
+
+.guide header .menu a.active { font-weight: 500; color: #73bfff; }
+
+.guide header .menu a.active::before { position: absolute; left: 0; top: -0.5rem; width: 1rem; height: 1rem; border-radius: 100%; background-color: #65b9ff; content: ''; }
+
+.guide footer {  font-size: 1.5rem; padding: 1.5rem; background-color: #616771; color: rgba(255, 255, 255, 0.5); text-align: center; }
+
+.guide .markup .depth1 li { margin-top: 1rem; padding: 1rem 1.5rem; background-color: #f8f8f8; }
+
+.guide .markup .depth1 li .box { margin: 1rem 0 0.5rem; border-color: #ccc; }
+
+.guide .markup .depth2 li, .guide .markup .box { font-size: 1.4rem; display: block; position: relative; padding: 1rem 1.5rem; border: 1px dashed #999; background: none !important; font-weight: 400; color: #000; }
+
+.guide .markup .depth2 li + *, .guide .markup .box + * { margin-top: 1rem; }
+
+.guide .markup .depth2 li.type1, .guide .markup .box.type1 { border-style: solid; }
+
+.guide .markup .depth2 li ul, .guide .markup .box ul { margin-bottom: 0.5rem; }
+
+.guide .markup .depth2 .sub, .guide .markup .depth3 li { border: 0 none; background-color: #eaeef3 !important; }
+
+.guide .markup .depth2 .sub { width: 20%; flex:auto;}
+.guide .markup .depth2 .sub + li { width: 80%; flex:auto;}
+
+.guide .markup .depth4 li { border: 1px dashed #ccc; }
+
+.guide .markup .depth5 { margin-top: -0; display: flex; width: calc(100% + 1rem); margin: 1rem 0 0 !important; }
+
+.guide .markup .depth5 > * { clear: none; float: left; width: calc(50% - 1rem); margin: 0 1rem 0 0; }
+
+.guide .markup .depth5 > *:nth-child(2n + 1) { clear: both; }
+
+.guide .markup .depth5 li { margin-top: 0; border: 1px dashed #999; }
+
+.guide .markup .depth5.type1 { margin-top: -0; display: inline-block; width: calc(100% + 1rem); }
+
+.guide .markup .depth5.type1 > * { clear: none; float: left; width: calc(33.33333% - 1rem); margin: 0 1rem 0 0; }
+
+.guide .markup .depth5.type1 > *:nth-child(2n + 1) { clear: none; }
+
+.guide .markup .depth5.type1 > *:nth-child(3n + 1) { clear: both; }
+
+.guide .folder { margin-bottom: 2rem; border: 1px solid #ddd; border-top: 0 none; color: #333; }
+
+.guide .folder li::before { display: inline-block; position: relative; top: 1px; font-family: "xeicon"; vertical-align: top; position: relative; top: -0.1rem; margin-right: 0.5rem; vertical-align: middle; }
+
+.guide .folder > ul > li { padding: 1rem 1.5rem; border-top: 1px solid #ddd; font-weight: 500; }
+
+.guide .folder > ul > li::before { content: ''; }
+
+.guide .folder > ul > li ul > li { font-size: 1.5rem; margin: 1rem -1.5rem -1rem; padding: 1rem 4rem; border-top: 1px solid #ddd; background-color: #fcfcfc; font-weight: 300; }
+
+.guide .folder > ul > li ul > li.file::before { content: ""; }
+
+.guide .folder > ul > li ul > li.js::before { content: ""; }
+
+.guide .folder > ul > li ul > li::before { content: ''; }
+
+.guide .folder > ul > li ul > li.css::before { margin-right: 1rem; font-style: italic; font-family: Roboto; font-weight: 800; content: '#'; }
+
+.guide .folder > ul > li ul > li.js::before { font-size: 1.8rem; top: 0; margin-right: 1rem; }
+
+.guide .folder > ul > li ul > li ul > li { margin-left: -4rem; margin-right: -4rem; padding-left: 6rem; background-color: #f5f5f5; }
+
+.guide .folder > ul > li ul > li ul > li ul > li { margin-left: -6rem; padding-left: 8rem; background-color: #efefef; }
+
+.guide .folder small { font-size: 1.4rem; margin-left: 1rem; padding-left: 1rem; color: #999; }
+
+
+/* 가이드용 추가 시작 */
+.intro { height: 100%; background: #2f3643; display: flex; flex-direction: column; align-items: center; justify-content:space-between;}
+.intro .menu { display: flex; gap:5rem;}
+.intro .menu::before {display: none;}
+.intro .menu a { display: flex; width: 20rem; height: 20rem; align-items: center; justify-content: center; background: #73bfff; border-radius: 50%; font-size: 2.4rem; font-weight: 700; color:#fff; transition: 0.2s;}
+.intro .menu a:hover { background: #3e82bb;}
+.intro header { height: 100%;  display: flex; flex-direction: column; align-items: center; justify-content:space-evenly;}
+.intro footer { width: 100%; font-size: 1.5rem; padding: 1.5rem; background-color: #616771; color: rgba(255, 255, 255, 0.5); text-align: center; }
+
+.snb { position: sticky; top: 0;}
+.guide-article{	scroll-margin-top:5rem; margin-bottom: 10rem; 
+    code {background: var(--gray); padding:0.5rem 1rem; font-family:Menlo, Consolas, Liberation Mono, Lucida Console, monospace; font-size: 1.3rem; color:#1b1b1b; margin-left: 1rem; }
+}
+.color-depth { display: flex; margin-top: 1rem;
+    li { flex: 1; padding: 1rem; word-break: break-all;}
+    &.color li:nth-last-child(-n+6),
+    &.gray li:nth-last-child(-n+5) { color: var(--white);}	
+}
+code { background: var(--gray-10);}
+
+.flex { display: flex; gap: 1rem;
+    >* { flex: 1; }
+}
+
+
+/* 가이드용 추가 끝 */
+

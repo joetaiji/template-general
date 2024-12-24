@@ -1,0 +1,603 @@
+@import "mixin";
+
+/* =======================================================================================
+popup-wrap
+======================================================================================= */
+.popup-wrap { display: none; position: fixed; left: 0; top: 0; right:0; bottom:0; z-index: 10;  padding: 1rem; overflow-y: auto; background: var(--gray-5);	
+	.popup-in { padding: 8rem 0; @include flex(null, center, $fd:column); margin:0 auto; height: 100%; }
+	.popup { @include flex($fd:column); height: 100%; padding: 0; position: relative;
+		&-head { margin-bottom: 4rem;
+			.pop-tit { font-size: 2.5rem; }
+		}
+		&-body { flex:1; max-height: 100%; overflow-y: auto; @include scrollbar(var(--gray-60), var(--gray-30), $size: .6rem)}
+		&-close {
+			position: absolute; top: 0;right: 0; width: 4.8rem; height: 4.8rem; background: url(#{$url}/layout/ico_close_48.svg) no-repeat 0 0/contain;
+		}
+	}
+}
+//통합검색
+.pop-total-serch-wrap { position: relative;
+	.search-total-top { padding-bottom: 4rem; border-bottom: 1px solid var(--gray-40); }
+	.search-tit { display: flex; font-size: 3.2rem; font-weight: 700; margin-bottom: 2.4rem;
+		.btn.sm {font-size: 1.5rem; margin-left: auto;}
+	}
+	.sch-input { position: relative;
+		.form-control { width: 100%; height: 8rem; font-size: 2.5rem; font-weight: 700; padding: 0 7.2rem 0 2.4rem; border-radius: 1.2rem; border: 1px solid var(--gray-60);}
+		.ico-sch { @include pos(rt, 1rem, 50%);
+			&::after { width: 4rem; height: 4rem; font-size: 4rem;}
+		}
+	}
+	.search-text { padding-top: 4rem; height:calc(100vh - 38rem); overflow-y: auto; @include scrollbar(var(--gray-60), var(--gray-30), $size: .6rem);
+		.sch-info-list { display: flex; width: 100%;
+			.li { flex: 1; @include flex(3.6rem, flex-start, $fd:column); width: 50%; padding: 0.8rem 2.4rem;				
+				.list {@include flex(1.8rem, null, flex-start, column); width: 100%;
+					>li{@include flex(null, center);}
+					i { margin-right: 1rem;}
+					.btn-ico {margin-left: auto;}
+				}
+			}
+			.li2 { border-left: 1px solid var(--border);
+				.btn-ico.sm { width: 2rem; height: 2rem; padding: 0;}
+				.btn-txt.ico-del { font-size: 1.7rem; padding-left: 0;padding-right: 0; margin-top: auto;}
+			}
+		}
+	}
+	
+	
+}
+/* =======================================================================================
+header-top
+======================================================================================= */
+#header-top { position: relative; z-index: 1; background: var(--bg-5);	
+	.inner { @include flex(.4rem 1.6rem, center); flex-wrap: wrap; padding: .8rem .8rem .8rem 3.2rem; position: relative; }
+	.nuri-txt { font-size: 1.5rem; line-height: 1; @include flex(null, center);
+		&::before { display: inline-flex; content: ""; width: 2.4rem; height: 1.6rem;background: url(#{$url}/layout/top_ban_ico_flag.svg) no-repeat center/contain; @include pos(lt, 0, auto);
+		}
+	}
+}
+
+/* =======================================================================================
+layout 공통
+======================================================================================= */
+html {
+	//gnb열렸을때
+	&.active { 		
+		&::after { content: ''; display: block; width: 200%; height: 100vh; background: rgba(0, 0, 0, .5); position: fixed;left: 50%;top: 0; transform: translateX(-50%); z-index: 0; }
+	}
+	&.scroll-no { 
+		overflow: hidden;
+	} 
+}
+
+#wrap { position: relative; display: block; }
+.popup,
+.inner { width: var(--inner); max-width: calc(100% - 2rem); margin: 0 auto; }
+
+.drop-wrap { position: relative;
+	.drop-menu { display: none; @include pos(lt, 50%, auto); min-width: 13rem; z-index: 1; background: var(--white); border-radius: 1rem;padding: .8rem; border: 1px solid var(--gray-30); box-shadow: 0 0.4rem 1.2rem rgb(0 0 0 / .12); margin-top: 1.6rem; 
+		&::before { content: ''; position: absolute; left: 50%; top: 0; width: 1.3rem; height: 1.3rem; background: #fff; border: solid var(--gray-30); border-width: 1px 0 0 1px; transform: translate(-50%, -.7rem) rotate(45deg);}
+		.drop-in { @include flex(.8rem, $fd:column)}
+		.drop-top-info { border-bottom: 1px solid var(--gray-30); padding: 1.6rem 1.6rem .6rem;}
+		.item-link{ @include flex(.8rem, center); height: 4.8rem; padding: 0.8rem; border-radius: 0.6rem; @include hover; width: 100%;}
+		.drop-btm-btn { border-top: 1px solid var(--gray-30); padding-top: 0.8rem; @include flex($jc:center); 
+			.btn { flex: 1;}
+		}
+	}
+	&.active {
+		.btn-txt::after { rotate:180deg;}
+		.drop-menu { display: block; }
+	}
+}
+.linkWindow::after { @include blank; }
+/* =======================================================================================
+header
+======================================================================================= */
+
+.header { position: sticky; top:0; border-bottom: 1px solid var(--gray-30); z-index: 9; width: 100%; background-color: var(--white); transition: 0.5s;
+	&.fixed { top:calc(var(--headerHeight) * -1); }
+	.etc-ul { @include flex(.8rem); 
+		>li ~ li { @include bullet(0.1rem, 1.6rem, var(--gray-30), 50%); }
+		.btn-txt { @include flex($ai:center); width: 100%;}	
+		
+		.zoom-drop { 
+			.drop-menu { width: 15rem; }
+			.drop-list { 			
+				>li.active { 
+					.item-link{ color: var(--primary-70); background: var(--bg-5); font-weight: 700;
+						&::before { color:#fff; background: var(--primary-70);}
+					}
+				}
+			}
+			.item-link { 
+				&::before { content: '가'; font-size: inherit; border-radius: 0.4rem; background: var(--white); border: 1px solid var(--gray-30); @include flex(null, center, center); padding:.3rem .5rem; line-height: 1;}
+				&.xsm::before { font-size: 1.5rem;}
+				&.sm::before { font-size: 1.7rem;}
+				&.md::before { font-size: 1.9rem;}
+				&.lg::before { font-size: 2.1rem;}
+				&.xlg::before { font-size: 2.5rem;}
+			}					
+		}	
+		
+	}
+	.header-in {
+		.head-body { 
+			>.inner { @include flex($ai: center); padding: 3.6rem 0 1.4rem; position: relative;}
+			.head-etc { @include pos(rt, 0, .4rem); }		
+			.logo {  
+				a{ @include flex(3.2rem, center); }
+			}
+			.right { margin-left: auto; @include flex(2.4rem, flex-end, $fd:column);}
+			.btn-navi-wrap { @include flex(.8rem, center); }
+			.btn-navi { @include flex(.8rem, center); color: var(--gray-90); font-size: 1.7rem; font-weight: 700; padding: 1rem; transition: 0.2s; border-radius: 0.6rem;
+				@include hover;
+				&::before { display: inline-flex; content: ""; width: 2.4rem; height: 2.4rem; background-repeat: no-repeat; background-size: contain; }
+				&.sch::before { background-image:url(#{$url}/layout/head_ico_navi_sch.svg);	}
+				&.login::before { background-image:url(#{$url}/layout/head_ico_navi_login.svg); }
+				&.logout::before { background-image:url(#{$url}/layout/head_ico_navi_logout.svg); }
+				&.join::before { background-image:url(#{$url}/layout/head_ico_navi_join.svg); }
+				&.my::before { background-image:url(#{$url}/layout/head_ico_navi_my.svg); }
+				&.all { display: none;
+					&::before { background-image:url(#{$url}/layout/head_ico_navi_all.svg); }
+				}
+				
+			}
+			.my-drop {
+				.drop-menu {  width: 21rem; 						
+					.my-name { font-size: 1.9rem; font-weight: 700; margin-bottom: 1.6rem;}
+					.my-time {
+						dt { font-size: 1.5rem;}
+						dd {@include flex($jc:space-between);}
+					}
+					.time { color: var(--primary-60); @include flex(.3rem, center);
+						
+						&::before { content: ''; display: inline-flex; width: 1.6rem; height: 1.6rem; background: url(#{$url}/layout/head_ico_time.svg) 0 0 / contain no-repeat;}
+					}						
+				}
+			}	
+		}
+		.head-gnb { border-top: 1px solid var(--gray-30); background: var(--white);
+			.gnb { @include flex(1.6rem);}		
+		}
+	}	
+	.m-gnb-wrap { display: none; background: var(--white); position: fixed; top: 0; right: -100%; width: 100%;height: 100%; transition: right ease .3s .15s;
+		.m-gnb-in { @include flex($fd:column); height: 100%; 
+			.m-gnb-head { @include flex(1.6rem, $fd:column); padding: 1.6rem 1rem;	background: var(--white); border-bottom: .4rem solid var(--gray-20);	
+				.m-gnb-login { @include flex(1.6rem); 
+					.btn-navi { @include flex(.8rem, center); 
+						&::before { display: inline-flex; content: ''; width: 2rem;height: 2rem; background: 0 0/contain no-repeat;}
+						&.login { font-weight: 700;
+							&::before { background-image: url(#{$url}/layout/head_ico_navi_login.svg);}
+						}
+						
+						&.logout { background: var(--primary); color: var(--white); font-size: 1.5rem; padding: 1rem; font-weight: 400; border-radius: .6rem;
+							&::before { display: inline-block; font-family: var(--icon); content: "\eede"; background: none; width: auto; height: auto; }
+						}
+					}
+					.name { font-weight: 700;}
+					.ico-logout { @include flex(.2rem, center);}
+					
+				}
+				.sch-input { @include flex(.8rem); position: relative;
+					.form-control { padding:0 4.8rem 0 1.6rem; width: 100%;}
+					.ico-sch { @include pos(rt, 0, 50%);
+						&::after { width: 2.4rem; height: 2.4rem;}
+					}
+				}
+			}
+			.m-sch-result { display: none; background: var(--white);  @include pos(lt, 0, 13rem); width: 100%; height: calc(100% - 13rem); z-index: 1;
+				&-wrap { height: 100%; padding: 2.4rem; overflow-y: auto; }  
+				&-head { margin-bottom: 3rem; font-weight: 500; text-align: center; font-size: 2rem;}
+				&-list { 
+					li~li{margin-top: 1.6rem;padding-top: 1.6rem; border-top: 1px solid var(--gray-10);}
+				}
+				&-close { @include circle(2.4rem, var(--gray-50)); @include pos(rt, 1.6rem, 1.6rem); color: var(--white);}
+			}
+			.m-gnb-body { flex:1; background: var(--bg-5); position: relative;
+				.m-gnb-menu { 
+					.topmenu-all { 
+						>li{ 
+							>a { @include flex($ai:center); font-size: 1.9rem; font-weight: 700; width:14rem; height: 6.4rem;  border-bottom: 1px solid var(--gray-20); padding: 0 2.4rem;}
+							.submenu { @include pos(rt, 0, 0); width: calc(100% - 14rem); height: 100%; min-height: 100%; background: var(--white); display: none; padding: 0 1.6rem; overflow-y: scroll; scroll-behavior:smooth; @include scrollbar;
+								>ul{
+									>li { padding: 1rem;
+										~ li {border-top: 1px solid var(--gray-20);}
+										>a { @include flex(.2rem, center); height: 4rem;}
+										>div {
+											.lnb-detail { padding-left: .8rem;
+												>li {
+													>a { @include bullet(.3rem, .3rem, var(--gray-90), 1rem, 50%) }
+												}
+											}
+										}
+									}
+								}
+							}
+							&.active {
+								>a { background: var(--white); color: var(--primary-70); }
+								.submenu { display: block; }
+							}
+						}
+					}
+				}
+			}
+			.ico-close { @include pos(rt, 0, 1rem); }
+		}
+		&::after { content: ''; display: block; background: rgb(0 0 0 / .5); position: fixed; left: 0;top: 0;right: 0;bottom: 0; z-index: -1; opacity: 0; visibility: hidden; transition: 0.2s;}
+	}
+	
+
+	// topmenu
+	.topmenu { display: flex; 
+		a {	transition: 0.2s; }
+		>li { 
+			>a {
+				@include flex(.8rem, center, center); white-space: nowrap; position: relative; padding: 0 2rem; font-size: 1.8rem; font-weight: 700; color: var(--gray-70); height: 6.2rem;
+				&::after { display: inline-flex; content: ""; width: 2rem; height: 2rem; background: url(#{$url}/layout/head_gnb_ico_arr.svg) no-repeat center/contain;}
+				&:hover,
+				&:focus { color: var(--primary-70);
+					&::after { background-image: url(#{$url}/layout/head_gnb_ico_arr_on.svg); }
+				}
+				&::before { content: ""; display: block; @include pos(lb,50%,0); height: 4px; width: 0; background-color: var(--primary-70); transition: .2s; }
+				&.active::before { width: 100% }
+			}
+			&.active {
+				>a { background: var(--bg-10); color: var(--primary-70);
+					&::after {transform: rotate(180deg);}	
+				}
+				.submenu { @include active(visible); 
+					> ul { background: var(--bg-5); padding-top: 1.6rem; padding-bottom: 1.6rem; }
+				}
+			}
+		}
+		.submenu { @include inactive; width:100%; max-width: var(--inner); display: flex; @include pos(lt, 50%, auto); margin-top:1px;
+			&::before { content: ""; display: block; width: 200%; height: 100%; @include pos(lt, 50%, 0); z-index: -1; background-color: var(--white); box-shadow: 0 2rem 2rem rgba(0,0,0,.12); }			
+			> ul {
+				> li { display: flex; 
+					> a { width: 26rem; height: 5.6rem; padding: 0 2.4rem; @include flex($ai:center); font-weight: 700;
+						&::after { width: 2rem; height: 2rem;}
+					}
+					> div { width: calc(var(--inner) - 26rem); position: absolute; left: 26rem; top: 0; background: var(--white); padding: 2.4rem 4rem; display: none; flex-direction: column; gap: 2.4rem;
+						> a { font-weight: 700; font-size: 2.5rem; @include flex(.8rem, center);
+							&::after {content: ''; width: 2rem; height: 2rem; background: url(#{$url}/layout/head_gnb_ico_arr_20_right.svg); display: block;}
+						}
+					}
+					.lnb-detail { @include grid(0.8rem 1.6rem, repeat(4, 1fr))}
+					.lnb-detail-item {
+						a {display: block; @include bullet(.3rem, .3rem, var(--gray-90), 1rem, 50%)}
+					}
+					&.active {
+						> a { background: var(--white); color: var(--primary-70);}
+						> div { display: flex;}
+					}
+				}
+			}
+		}			
+	}
+}
+
+/* =======================================================================================
+긴급 공지
+======================================================================================= */
+.main-urgent-wrap { background: var(--gray-5);	@include flex(2.4rem, normal, flex-start, column); width: 100%; padding: 2.4rem; margin: 0 auto;
+	.urgent-ban-list { width: 100%; max-width:var(--inner); margin:0 auto; 
+		.urgent-ban { @include flex(1.6rem, center, flex-start); height: 8rem; padding: 0.8rem 1.6rem; border-radius: 0.6rem;  background: var(--white); 
+			.urgent-badge {color: var(--white); @include flex(.4rem, center, flex-start); font-size: 1.5rem; font-weight: 700; min-width: 7.8rem; height: 4.8rem; border-radius: 10rem; padding: 0.8rem 1.2rem;
+				&::before { content: '';display: inline-flex; width: 2.4rem; height: 2.4rem; background:  0 0/contain no-repeat;}
+				&.danger{ background: var(--danger); 
+					&::before { background-image: url(../img/component/ico_urgent_badge_danger.svg);}
+				} 
+				&.ok{ background: var(--success); 
+					&::before { background-image: url(../img/component/ico_urgent_badge_ok.svg);}
+				}
+				&.info{ background: var(--information); 
+					&::before { background-image: url(../img/component/ico_urgent_badge_info.svg);}
+				}
+			}
+			.urgent-txt { font-weight: 700; flex:1; @include ellipsis-multi(2);}
+			.btn-txt.ico-more { height: 4rem; border-radius: 0.6rem; font-size: 1.7rem;
+				&::after{ width: 2rem; height: 2rem; background: url(../img/component/ico_arr-right1.svg) 0 0/contain no-repeat;}
+			}
+		}
+	}
+}
+
+/* =======================================================================================
+main & go_top
+======================================================================================= */
+.main { position: relative; }
+.go_top {
+	@include circle(6rem, #667); color: var(--white); @include flex(.25rem, center, center); flex-direction: column; position: fixed; right: 2.5rem; bottom: 2.5rem; z-index: 7; opacity: 0; visibility: hidden; transition: .3s;
+	
+	&:hover { background-color: #445; }
+	&.fixed { opacity: 1; visibility: visible; }
+	&.stick { @include pos(lb, auto, 0); transform: translateY(50%); }
+}
+
+/* =======================================================================================
+breadcrumb
+======================================================================================= */
+.breadcrumb-wrap {font-size: 1.5rem; margin-bottom: 4rem;
+	.breadcrumb { @include flex(0.4rem, center) }
+	.home {
+		&::before { content: "";
+		width: 2.4rem;
+		height: 2.4rem;
+		background: url(#{$url}/layout/ico_bread_home.svg) 0 0 / contain no-repeat;}
+	}
+	li { @include flex(.4rem, center);
+		~ li::before { content: ""; display: block;
+			width: 1.6rem;
+			height: 1.6rem;
+			background: url(#{$url}/layout/ico_bread_arr.svg) 0 0 / contain no-repeat;}
+		.txt { text-decoration: underline; text-underline-position: under;}	
+	}
+	.current { font-weight: 700; }
+}
+
+/* =======================================================================================
+contentWrap = #snb + #content
+======================================================================================= */
+#container { padding: 8rem 0; position: relative; z-index: 0;
+	.in-between { @include flex(8rem); }
+}
+
+
+%caret {
+	
+	>a::after { content: ''; display: block; background: url(#{$url}/layout/snb_ico_plus.png) 0 0 / contain no-repeat; width: 2.2rem; height: 2.2rem; @include pos(rt, 1.4rem, 1.7rem); transition: .2s; }
+	&:hover>a::after { rotate: 90deg; }
+	&.active>a::after { background-image: url(#{$url}/layout/snb_ico_minus.png); rotate: 180deg; }
+} 
+
+/* =======================================================================================
+snb
+======================================================================================= */
+.acco-list .acco-body { display: none;}
+$snbW: 23rem;
+
+.left-menu { flex: 0 0 $snbW; 
+
+	&.stick { position: fixed; width: $snbW; top: calc(var(--headerHeight) + 1rem); }
+	.title { @include flex(null, center, center); font-size: 2.4rem; color: var(--white); font-weight: 700; height: 14rem;  background: linear-gradient(133deg, #2e96cf, #2365b9); margin-bottom: 1.4rem;}
+	.list { border: 1px solid var(--gray-30);
+		.head_menu_depth {
+			>li {
+				~ li > a::before { content: ''; display: block; position: absolute; top: 0; width: calc(100% - 3.2rem); border-top: 1px dashed var(--gray-30); }
+				>a { display: block; padding: 1.8rem 1.6rem; font-size: 1.7rem; font-weight: 700; letter-spacing: -1px; position: relative; line-height: normal; color: var(--gray-80);
+					@include hover;
+				}				
+				&.active {
+					>a { background: var(--primary-80); color: var(--white); font-weight: 700; margin:-1px;
+						&::before { display: none;}
+					}
+					>ul { @include active; padding: 2rem 1.6rem; background: var(--gray-10); border-bottom: 1px solid var(--gray-30); }
+					+ li>a::before { display: none;}
+				}
+				&.is-depth3 { @extend %caret; }
+
+				>ul { display:block!important; padding:0 1.6rem; @include inactive(.3s);
+		
+					>li {
+						&.active { color: var(--primary-70); font-weight: 700;
+							>a { 
+								&::before { background: var(--primary-70);}
+								span {
+									&::after { opacity: 0.15; }
+								}
+							}
+						}
+						>a {
+							display: block; position: relative; font-size: 1.5rem; padding: .3rem 0;
+							@include bullet(.4rem, .4rem, var(--gray-40), $r:50%); 		
+							span { position: relative;
+								&::after { content: ''; width: 100%; height: 0.8rem; background: #192e93; position: absolute; left: 0; bottom: 0; opacity: 0; }
+							}
+							&:hover { text-decoration: underline }
+						}
+					}
+				}
+			}
+		}
+		
+		.depth4 { display: none }
+	}
+} 
+/* =======================================================================================
+content 공통
+======================================================================================= */
+
+.contents {	flex: 1; min-width: 1px;
+	.page-title-wrap { position: relative; border-bottom: 1px solid var(--gray-30);  padding-bottom: 2.5rem; margin-bottom: 4rem; }	
+	.h-tit { font-size: 4rem; color: #222; padding-right: 4rem;}
+	.h-tit-drop { display: none;
+		.drop-btn { @include flex(.8rem, center);
+			&::after { content: ''; display: inline-flex; width: 3.2rem; height: 3.2rem; background: url(#{$url}/layout/ico_h_tit_drop_arr.svg) 0 0 /contain no-repeat; transition: 0.25s;}			
+		}
+		&.active { 
+			.drop-btn::after { transform: rotate(180deg);}
+			.drop-menu { left:auto; translate:0; width: 100%;
+				&::before {display: none;}
+			}
+		}
+	}
+	.print-btn { width: 4rem; height: 4rem; @include pos(rt, 0, .8rem); border-radius: 1.4rem; background: var(--gray-5); @include hover;}
+	.page-contents { color: var(--fontColor);}
+	.article { scroll-margin-top: 15rem; min-height: 20rem;}
+}
+.go-top {
+	@include circle(7.5rem, var(--white)); color: var(--gray-70); border:1px solid var(--gray-40); @include flex(null, center, center, $fd:column); line-height: normal; position: sticky; left: calc(100% - 10rem); bottom: 7.5rem; transform: translateY(50%); z-index: 10; opacity: 0; visibility: hidden; transition: 0.3s;
+	span {font-weight: bold; }
+	i {font-size: 2rem; }
+	
+	&:hover { @include hover}
+	&.fixed { opacity: 1; visibility: visible; }
+}
+/* =======================================================================================
+footer
+======================================================================================= */
+.footer { background-color: var(--gray-5); 
+	>.inner { @include flex(4rem); flex-direction: column; padding: 4rem 0;  }
+	.foot-quick { background: var(--white); border-top: 1px solid var(--gray-30); border-bottom: 1px solid var(--gray-30);		
+		.inner { @include flex; border-left: 1px solid var(--gray-30);
+			
+			.link { width:25%; border-right: 1px solid var(--gray-30); height: 5.4rem; padding: 0 2.4rem;  @include flex(null, center, space-between); 
+				&::after{
+					content: ""; display: block; width: 2rem; height: 2rem; background: url(#{$url}/layout/foot_ico_plus.svg) no-repeat center/contain;
+				}
+				@include hover;
+			}
+		}
+	}	
+	.pop-foot-links {
+		@include grid(0.8rem 1.6rem, repeat(4, 1fr));
+		>li { 
+			a { display: block; @include bullet(.5rem, .5rem, #ccc, 2.1rem, 50%); padding: 1.2rem 0.8rem 1.2rem 2rem; border-radius: 0.8rem; @include hover; 
+				&::before { left: 0.5rem; }
+			}
+		}
+	}
+	.foot-viewer { margin-left: auto; @include flex(1.5rem, center);
+		ul { @include flex(.4rem);}
+		a { background: url(#{$url}/layout/foot_viewer_icon.png) 0 0 / auto 3rem no-repeat; display: block; width: 3rem; height: 3rem;}
+		.pdf { background-position: -3rem 0;}
+		.ppt { background-position: -6rem 0;}
+	}
+	.f-logo { @include flex(null, center, space-between);
+		.f-cert { @include flex(1rem, center); font-size: 1.5rem; line-height: 1.2;
+			a { @include flex(1rem, center);  }
+		}
+	}
+	.f-cnt { @include flex(2.4rem);
+		.f-info { flex: 1; @include flex(2.4rem, $fd: column); }
+		.info-cs { @include flex(1.6rem, $fd: column); 
+			li { @include flex(1rem); }
+		}
+		.f-cs { width: 30rem; @include flex(4rem, $fd:column);
+			dl { @include flex(1.6rem, $fd:column);}
+			dt { font-weight: 700; font-size: 1.5rem; }
+			dd { @include flex(.8rem, center); line-height: 1;}
+			.key { font-weight: 400;}
+			.value { font-weight: 700;}
+		}
+		.f-link { @include flex(2.4rem, $jc: flex-end, $fd:column); 
+			.link-go { @include flex(.8rem, flex-start, $fd:column); font-weight: 700; flex: 1;
+				a { display: inline-flex;}
+			}
+			.link-sns { @include flex(.8rem);
+				a {display: block; width: 4rem; height: 4rem; background:#fff no-repeat center/auto 100%; border-radius: 50%; @include hover;}
+				.instagram { background-image: url(#{$url}/layout/foot_ico_sns_instagram.png);}
+				.youtube { background-image: url(#{$url}/layout/foot_ico_sns_youtube.png);}
+				.twitter { background-image: url(#{$url}/layout/foot_ico_sns_twitter.png);}
+				.facebook { background-image: url(#{$url}/layout/foot_ico_sns_facebook.png);}
+				.blog { background-image: url(#{$url}/layout/foot_ico_sns_blog.png);}
+			}
+		}
+	} 
+	.f-btm { @include flex(2.4rem, $fd: column); padding-top: 0.8rem; border-top: 1px solid var(--gray-30);
+		&-text { @include flex(null, center, space-between);
+			.f-menu { display: flex;
+				a { @include flex(null, center, $fd:inline); height: 4rem; padding:0 1rem; border-radius: 0.6rem; @include hover;}
+			}
+			.point {font-weight: 700; color: var(--primary-70);}
+			.f-copy { font-size: 1.5rem; color: var(--gray-70);}
+		}
+		&-ban { @include flex(.8rem); background: var(--white); padding: 0.8rem 1.6rem; 
+			&::before { content: ""; display: block; width: 7.2rem; height: 2.4rem; margin-right: .8rem; background: url(#{$url}/layout/btm_ban_ico_flag.svg) no-repeat center/contain;}
+		}
+	}
+}
+
+/* =======================================================================================
+반응형
+======================================================================================= */
+@include media($web) {
+}
+@include media($pad) {
+	#header {
+		.head-etc { display: none; }
+		.header-in{
+			.head-body {				
+				> .inner { padding: 0.6rem 0;}
+				.logo { 
+					.logo-im { height: 4rem;}
+					.logo-slogan { display: none; }
+				}
+				
+				.my-drop { display: none; }
+				.btn-navi.navi-row { flex-direction: column; padding-left: .4rem; padding-right: .4rem;}
+				.btn-navi.all { display: flex; }
+			}
+			.head-gnb {
+				display: none;
+			}
+		}
+		.m-gnb-wrap { display: block; 
+			&.active { right: 0; 
+				&::after { opacity: 1; visibility: visible; }
+			}
+		}
+	}
+	.main-urgent-wrap {padding: 1.2rem;}
+	#container { padding:4rem 0;
+		.in-between {
+			.left-menu { display: none;}
+		}		
+	}
+	.breadcrumb li { display: none;
+		&:nth-child(-n+2),
+		&:last-child { display: inline-flex;}
+		&:nth-child(2) { 
+			&::after { content: "…";}
+			span{ display: none; }
+		}	
+	}
+}
+
+@include media($mobile) {
+	.pop-total-serch-wrap {
+		.search-tit { font-size: 2.4rem;}
+		.search-text { padding-top: 3.2rem; height: auto; overflow-y: visible;
+			.sch-info-list { flex-direction: column;
+				.li { padding: 0; width: 100%;}
+				.li2 { padding-top: 3.2rem; margin-top: 3.2rem; border-left: 0; border-top: 1px solid var(--border);}
+			}
+		}
+	}	
+	.popup-wrap { padding-right: 0; 
+		.popup {
+			&-in {padding: 2rem 0;}
+			&-body { padding-right: 1.6rem;}
+			&-close { right: 1.6rem; width: 2.8rem; height: 2.8rem;}
+		}
+	}
+	#footer {
+		.foot-quick {
+			> .inner { flex-direction: column; max-width: 100%;
+				.link { width: 100%; min-height: 4.8rem; 
+					~ .link { border-top: 1px solid var(--gray-30); }
+				}
+			}
+			.pop-foot-links { grid-template-columns: 1fr 1fr; gap: 0;}
+			.foot-viewer { border: 1px solid var(--gray-30); border-left: 0; border-bottom: 0; width: 100%; height:5.4rem; padding:0 2.4rem; }
+		}
+		.f-logo { flex-direction: column;}
+		.f-cert { display: none; }
+		.f-cnt { flex-direction: column; 
+			.info-cs li { letter-spacing: -1px;}
+		}
+		.f-btm {
+			.f-btm-text { flex-direction: column; align-items: flex-start;}
+			.f-menu { flex-wrap: wrap;}
+		}
+	}
+	
+}
+
+@media print {
+	#header-top, 
+	#header,
+	#snb,
+	.breadcrumb-wrap,
+	.print-btn,
+	#footer { display: none; }
+}

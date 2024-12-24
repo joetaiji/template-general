@@ -1,0 +1,45 @@
+@import "../mixin";
+
+
+.pagination {
+	margin: 3rem 0; @include flex(.5rem, center, center);
+	
+	.page-navi { @include flex(.5rem, center);}
+	/* .page-navi, */ 
+	.page-link {
+		width: 4rem; height: 4rem; padding: 1rem 0; border-radius: 0.5rem; @include flex(null, center, center); border: 1px solid transparent; transition: 0.2s;
+
+		&:hover, &:focus { text-decoration: none; border-color: #333; }
+	}
+	.page-links { margin: 0 0.5rem; @include flex(.2rem); font-size: 1.5rem; }	
+	/* .page-navi { border: 1px solid #ddd; } */
+	.link-dot {
+		&:hover, &:focus { border-color: transparent; }
+	}
+
+	$icons: ("prev": "\ea64", "next": "\ea6e", "link-dot": "\ef79");
+	@each $name, $glyph in $icons {
+		.#{$name}::before { content: $glyph; font-family: var(--icon); display: block; }
+	}
+	.next { flex-direction: row-reverse;}
+	.active { background-color: var(--primary-80); color: var(--white); }	
+}
+
+@include media($mobile) {
+	.pagination { position: relative; padding-top: 5rem;
+		.page-navi { @include pos(lt, 50%, 0);
+			&.prev { translate: -100% 0;}
+			&.next { translate: 50% 0;}
+		}
+	}
+	/* .paging {
+		.page-none { display: none; }
+		.page-now { display: flex; }
+	}
+	.board-pager {
+		.group a { display: none; 
+			&.active { display: flex; }
+		}
+	}
+	.last_page { @include flex(1rem, center, center); } */
+}

@@ -1,0 +1,132 @@
+@import "../mixin";
+
+
+/* ===========================================================================================
+swiper slider
+=========================================================================================== */
+.swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; display: block; width: 100%; 
+	&-wrapper { width: 100%;  z-index: 1; display: flex; transition-property: transform;  box-sizing: content-box; transform: translate3d(0px, 0, 0); 
+		*:focus { outline:0; border: 2px dotted var(--gray-50) !important; }
+	}
+	&-pointer-events { touch-action: pan-y; }
+	&-slide { flex-shrink: 0; width: 100%; height: 100%; position: relative; transition-property: transform; display: block; justify-content: center; }
+	
+	&-scrollbar { background: var(--white); display: none; }
+	&-scrollbar-drag { background: var(--primary-60); }	
+	&-button { @include flex(null, center, center); width: auto; height: auto; margin-top: initial; color: var(--gray3); font-size: 2.4rem; position: absolute; top:50%; z-index: 10; 
+		&::after { font-size: 1.2rem; font-weight: 700;}
+		&-prev,
+		&-next {transform: translateY(-50%); 
+			&::after { display: none; }
+		}
+		&-disabled { opacity: 0.35; cursor: auto; pointer-events: none; }
+		&-prev { left: 0.5rem; }
+		&-next { right: 0.5rem; }
+	}
+	&-controls { margin: 2rem 0; @include flex(1rem, center, center);
+		i { font-size: 2rem; font-weight: 700;}
+	}
+	&-autoplay {
+		button {
+			display: none!important;
+			&.active { display: flex!important;}
+		}
+	}
+	&-pagination { @include flex(1rem, center, center); 
+		&-bullets { flex-wrap: wrap; gap: .3rem; } 
+		&-bullet { width: 1.7rem; height: 1.7rem; padding: 0.35rem; cursor: pointer; overflow:hidden;
+			&::before{ content: ""; display: block; width: 100%; height: 100%; background: var(--gray-30); border-radius: .5rem; transition: 0.2s; border:1px solid var(--gray-50);}
+		}
+		&-bullet-active { width:2.7rem; 
+			&::before { background: var(--primary); border-color: transparent; }
+		}
+		&-current { color: var(--primary-60);}
+	}	
+	&-backface-hidden .swiper-slide { transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+	
+	
+	  
+
+}
+
+.swiper-fade {
+	.swiper-free-mode .swiper-slide {
+		transition-timing-function: ease-out;
+	}
+	.swiper-slide {
+		pointer-events: none;
+		transition-property: opacity;
+	}
+	.swiper-slide .swiper-slide {
+		pointer-events: none;
+	}
+	.swiper-slide-active,
+	.swiper-slide-active .swiper-slide-active {
+		pointer-events: auto;
+	}
+}
+
+.swiper-autoheight { height: auto;
+	.swiper-wrapper { align-items: flex-start; transition-property: transform,height; }
+	.swiper-slide { height: auto; }
+}
+
+:root {	
+	--swiper-preloader-color: var(--primary-70);
+}
+
+.swiper-lazy-preloader {
+	width: 42px;
+	height: 42px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -21px;
+	margin-top: -21px;
+	z-index: 10;
+	transform-origin: 50%;
+	box-sizing: border-box;
+	border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+	border-radius: 50%;
+	border-top-color: transparent;
+  }
+  .swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,
+  .swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader {
+	animation: swiper-preloader-spin 1s infinite linear;
+  }
+  .swiper-lazy-preloader-white {
+	--swiper-preloader-color: #fff;
+  }
+  .swiper-lazy-preloader-black {
+	--swiper-preloader-color: #000;
+  }
+  @keyframes swiper-preloader-spin {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+
+/* guide-sample */
+#slider {
+	.swiper{
+		.item {
+			display: block; padding: 4.3rem 4.9rem; background: var(--white); border-radius: 0.5rem; border: 1px solid var(--primary); transition: 0.2s; text-decoration: none;
+
+			.date { display: block; font-size: 2.2rem; margin: 1.2rem 0 1rem; }
+			.desc { color: #858585; display: block; margin-bottom: 4rem; }
+			.view { color: #858585; font-size: 1.4rem; @include flex(.5rem, $ai: center); }
+			&:hover { border-color: var(--primary-60); box-shadow: 2px 2px 28px 0px rgba(0, 0, 0, 0.08); transform: translateY(-2rem); }
+			&.active {
+				.badge { background: var(--primary-60); }
+			}
+		}
+	}
+}
+
+@include media($mobile) {
+	.swiper-scrollbar { display: block; }
+}
+

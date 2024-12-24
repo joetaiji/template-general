@@ -1,0 +1,55 @@
+@import "../mixin";
+
+/* 아코디언 */
+.accordion {
+	details {
+		&:first-of-type { border-top: 1px solid var(--gray-90);}
+		.aco-title {
+			@include flex($ai:center); border-bottom: 1px solid var(--gray-30); padding: 1rem 2rem; cursor: pointer;
+			&:hover { text-decoration:none; background: var(--bg-5); transition: 0.2s;}
+			.notice { font-size: 1.5rem; background: var(--gray-5); @include flex(null, center, center, column); width: 6rem; min-width:6rem; height: 5.7rem; margin: -1rem 2rem -1rem -2rem; font-size: 1.3rem; font-weight: 700; color: var(--gray-70);
+				&::before { @include icon("\f2a2"); font-size: 1.7rem;}
+			}
+			.title { @include flex(2rem, center); font-weight: normal;}
+			.arrow { margin-left: auto; font-size: 2.4rem; transition: .25s; }
+		}
+		.aco-cont { padding: 2rem; @include flex(2rem); background: var(--gray-5);
+			.category { background: var(--primary); border-color: transparent; color: var(--white);}
+			.cont { width: calc(100% - 5.2rem);
+				p { margin-bottom: 1rem;}
+			}
+		}
+		.category { font-size: 1.7rem; font-weight: 700; color: var(--primary); @include circle(3.2rem, var(--white)); border: 1px solid var(--gray-20);}
+
+		&.active {
+			.title {font-weight: 700;}
+			.arrow { transform: rotate(180deg); }
+			> .aco-cont { padding: 3rem 2rem; background-color: #fafafa;  border-bottom: 1px solid var(--gray-30); }
+		}
+	}		
+}
+
+// details로 변경전 아코디언 
+// .accordion {
+// 	border-top: 1px solid var(--gray-90);
+
+// 	> li {
+// 		.aco-title {
+// 			@include flex($ai:center); border-bottom: 1px solid var(--gray-30); padding: 1rem 2rem; width: 100%;
+// 			&:hover { text-decoration:none; background: var(--bg); transition: 0.2s;}
+
+// 			.title { font-size: 2rem; }
+// 			.arrow { margin-left: auto; font-size: 3rem; background: var(--white); border: 1px solid #dedede; border-radius: 50%; padding: .6rem; transition: .25s; }
+// 		}
+// 		.aco-cont { @include inactive(.3s); padding: 0 4rem;}
+
+// 		&.active {
+// 			.arrow { transform: rotate(180deg); }
+// 			> .aco-cont { @include active; padding: 4rem; background-color: #fafafa;  border-bottom: 1px solid var(--gray-30); }
+// 		}
+// 	}		
+// }
+
+@include media($mobile) {
+	.accordion > li.active > .aco-cont { padding: 2rem; }
+}

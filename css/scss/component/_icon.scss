@@ -1,0 +1,79 @@
+@import "../mixin";
+
+/* ==========================================================================================
+//icons
+============================================================================================*/
+[class*=ic-]::after { content: ''; display: inline-flex; align-items: center; font-family: var(--icon); }
+
+//rimixicon
+$iconGlyph: (
+	"prev": "\ea60", 	
+	"arr-long": "\ea6c", 	
+	"arr": "\ea6e", 	
+	"more": "\ea12", 
+	"down": "\ec54", 
+	"go": "\ecaf", 	
+	"sch": "\f0d1", 
+	"share": "\f0fe", 
+	"like": "\ee0b", 
+	"filter": "\f162",	
+	"close": "\eb98",
+	"reset": "\f541", 	
+	"setting": "\f0ea",
+	"time": "\f20f",
+	"email": "\eef6",
+	"print": "\f029",
+	"scrap": "\eae5",
+	"comment": "\ef46",
+	"log": "\eed4",
+	"logout": "\eed8",
+	"arr-right": "\ea6c", 
+	"arr-down": "\ea4e", 
+	"map": "\ef06", 
+	"warning": "\eca1",
+	"info": "\ee59",
+	"cal": "\eb21",
+	"lock": "\eecd",
+	"new": "N",
+	"star": "*"
+	
+);
+@each $name, $glyph in $iconGlyph {
+	.ic-#{$name}::after { content: $glyph; }
+}
+
+
+/* [class*="icon_"]{ display: block; width: 1.9rem;height: 1.9rem; background-position: 0 0; background-size: 100% 3.8rem; background-repeat: no-repeat;} */
+
+$iconSvgs: like, share, arr, arr-right, arr-right1, arr-down, more, sch, sch1, go, down, filter, reset, log, func, logout, email, print, scrap, del, plus, setting, link, comment, prev, close, time;
+[class*=ico-] {
+	&::before,
+	&::after { content: ''; display: none; width: 1.6rem; height: 1.6rem; background-repeat: no-repeat; background-size: contain; background-position: center;}	
+	&::after {display: inline-flex;}	
+}
+.ico-{
+	&before {	
+		&::before { display: inline-flex; }
+		&::after { display: none; }
+	}
+	@each $iconSvg in $iconSvgs {
+		&#{$iconSvg} { 
+			&::before,
+			&::after { background-image: url('#{$url}/component/ico_' + $iconSvg + '.svg'); }
+		}
+	}
+}
+
+.underline { text-decoration: underline; }
+
+.picto { @include circle(8.5rem, var(--gray-5)); 
+	img { max-height: 6.2rem;}
+}
+.s-picto { @include circle(3.6rem, var(--gray-20)); font-size: 2rem;}
+
+/* 
+.ico-filter {
+	position: relative;	
+	.num { display: inline-flex; position: absolute; right: 0.1rem; z-index: 1; height: 2rem; margin-top: -3rem; border-radius: 2rem; }
+}
+ */

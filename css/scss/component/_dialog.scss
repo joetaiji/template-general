@@ -1,0 +1,26 @@
+@import "../mixin";
+
+
+/* modal_popup */
+.dialog {
+	left: 50%; top: 50%; transform: translate(-50%, -50%);background: var(--white); min-width: 40rem; border-radius: 0.8rem;
+
+	.icon-info,
+	.icon-warning { border-radius: 50%; background: var(--warning); width: 10rem; height: 10rem; margin: 0 auto 3rem; @include flex(null, center, center); font-size: 6rem; font-weight: 700; }
+	.icon-warning{background: var(--warning); color: var(--white);}
+	
+	.btn-close { display: block; position: absolute; right: 2rem; top: 2rem; font-size: 2.4rem; 
+		i::before { @include icon("\f4c7");}
+	}		
+	&::backdrop { background: rgb(0 0 0 / .5); }
+}
+.dialog {
+	&-title { border-bottom: 1px solid var(--border); padding: 2rem 3rem; font-size: 2.2rem; font-weight: 700; }
+	&-info { font-size: 1.8rem; padding: 1rem; text-align: center; border-bottom: 1px solid #DDD;}
+	&-cont { padding: 4rem; background-color: var(--white); }
+	&-foot { padding: 4rem; background: var(--gray); text-align: center; }
+}
+
+@include media($mobile) {
+	.dialog-foot { padding: 2rem; }
+}

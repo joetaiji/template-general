@@ -1,0 +1,71 @@
+@charset "utf-8"; 
+/* =======================================================================================
+폰트
+======================================================================================= */
+@import url(../fonts/PretendardGOV/PretendardGOV.css);
+@import url(../fonts/remixicon/remixicon.css);
+
+/* ===========================================================================================
+basic style reset
+=========================================================================================== */
+
+html { position: relative; height: 100vh; font-size: 10px; scroll-behavior: smooth; }
+
+*, ::after, ::before { box-sizing: border-box; }
+
+body { margin: 0; padding: 0; font-size: var(--fontSize); letter-spacing: var(--letterSpace); font-weight: 400; font-family: var(--fontFamily); line-height: 1.5; color: var(--gray-90); word-break: keep-all; overflow-x: hidden; }
+
+dd, dl, dt, li, ol, ul { margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3, h4, h5, h6, th { color:var(--gray-90); }
+h1, h2, h3, h4, h5, h6, p, figcaption, figure, form { margin: 0; padding: 0;}
+
+a { color: inherit; text-decoration: none; text-underline-position: under;
+    &:hover { text-decoration: none; }
+}
+
+*:focus { outline: 2px dotted var(--gray-50); }
+
+img { border: 0; display: inline-block; vertical-align: top; font-size: 0; max-width: 100%; }
+
+table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: inherit;}
+
+caption, legend { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; border: 0; }
+
+input::placeholder { color: var(--gray-70); }
+
+input[disabled] { cursor: not-allowed; }
+
+input[type='number']{
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button { opacity: 1;}
+}
+
+/* input[type=submit] { appearance: none; }  */
+
+address, em, i { font-style: normal; }
+
+/* i { font-family: var(--icon); display: inline-block; vertical-align: middle; line-height: normal;} */
+
+button { border: 0; padding: 0; background: 0; cursor: pointer; }
+
+hr { margin: 0; padding: 0; border: 0; display: block; }
+
+fieldset,
+dialog,
+iframe { border: 0; margin: 0; padding: 0; }
+
+iframe { width: 100%; }
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
+
+button, input, optgroup, pre, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0; }
+
+textarea { resize: vertical; }
+
+details {
+	summary { cursor: pointer; }
+}
+
+mark { background: var(--primary-5); color: var(--primary-60); font-weight: bold; padding: 0 .3rem; }
+::selection { background: var(--primary-60); color:var(--white);}

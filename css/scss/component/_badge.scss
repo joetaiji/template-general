@@ -1,0 +1,30 @@
+@import "../mixin";
+
+.badge { 
+	max-width: fit-content; padding: .3rem .7rem; border-radius: 0.4rem; font-size: 1.4rem; background: #333; color: var(--white);
+
+	$badges: (
+		"1": (
+			background: #eff5ff,
+			text-color: var(--primary)
+		), 
+		"2": (
+			background: #effff8,
+			text-color: #369c36
+		), 
+		"3": (
+			background: #eff5ff,
+			text-color: var(--primary)
+		), 
+		"4": (
+			background: #eff5ff,
+			text-color: var(--primary)
+		)
+	);
+	@each $num, $props in $badges {
+		&.bg#{$num} { 
+			background: map-get($props, background); 
+			color: map-get($props, text-color); 
+		}
+	}
+}

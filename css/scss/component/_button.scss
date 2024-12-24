@@ -1,0 +1,74 @@
+@import "../mixin";
+
+/* ==========================================================================================
+//button
+============================================================================================*/
+.btns { @include flex(1rem, center, flex-end); flex-wrap: wrap; margin: 5rem 0; 
+	&.both { justify-content: space-between;}
+	&.col { flex-direction: column; margin: 0;}
+}
+
+.btn { @include flex(.4rem, center, center, inline); border-radius: 0.8rem; padding: .8rem 2rem; line-height: inherit; height: 4.8rem; /* min-width:12rem; */ transition: .25s; background: var(--white); color: var(--primary-90); border:1px solid var(--gray-90);
+	&:hover { border-color: var(--gray-60); background-color: var(--gray-10); text-decoration: none;}	
+
+	//text
+	&-txt { background: none; border: 0; padding: 0 .2rem; min-width:initial;
+		@include hover;
+		&::after{margin-left: 0;}
+	}	
+
+	//text + icon
+	&[class*=ico-] { 
+		&::before,
+		&::after { width: 1.8rem; height: 1.8rem;}	
+	}
+
+	//only icon
+	&-ico { border: 0; background: none; height: auto; min-width:inherit; padding-left:1rem; padding-right: 1rem;
+		&::after{margin-left: 0;}
+	}
+
+	//size
+	&.xsm { height: 3.2rem; font-size: 1.5rem; padding-left: .8rem; padding-right: .8rem; gap: .2rem;
+		&::before,
+		&::after { width: 1.6rem; height: 1.6rem;}	
+	}	
+	&.sm { height: 4rem; font-size: 1.5rem; padding-left: 1.6rem; padding-right: 1.6rem;
+		&::before,
+		&::after { width: 1.6rem; height: 1.6rem;}	
+	}	
+	&.md { height: 4.8rem; font-size: 1.7rem; 
+		
+	}
+	&.lg { height: 5.6rem; font-size: 1.9rem;}
+	&.xlg { height: 6.4rem; font-size: 1.9rem; }
+	
+	//type
+	&.primary { background:var(--primary); color: var(--white); border-color:transparent; 
+		&:hover { border-color: var(--primary-60); background-color: var(--primary-60); }
+		&:active { border-color: var(--primary-70); background-color: var(--primary-70);}
+	}
+	&.secondary { background:var(--primary-5); color: var(--primary-60) ;border-color:var(--primary); 
+		&:hover { background-color: var(--primary-10); }
+		&:active { background-color: var(--primary-20); }
+	}			
+	&.tertiary { background: var(--gray-80); color: var(--white); border-color:var(--gray-80); 
+		&:hover { background-color: var(--gray-90); border-color:var(--gray-90);}
+		&:active {  background-color: var(--black); }
+	}	
+
+	//radio버튼
+	&-label {
+		input[type='radio']{ position: absolute; opacity: 0;
+			&:checked + label,
+			&:focus + label { background:var(--primary); color: var(--white); border-color:transparent; }
+			&:focus + label { outline: 2px dotted var(--white); outline-offset: -2px; }
+		}
+		label { cursor:pointer; }
+	}
+
+}
+
+@include media($mobile) {	
+	.btns { justify-content: center;}
+}

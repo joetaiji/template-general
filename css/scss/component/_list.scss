@@ -1,0 +1,77 @@
+@import "../mixin";
+
+/* list - grid로 변형 = table 줄어들었을때 스크롤바 생기지 않아 flex로 변경 */
+.list-dot, .list-sdot, .list-dash, .list-order, .list-nobullet { @include flex(.5rem, $fd:column); margin-top: .8rem;
+    [class*='list-'] {margin-bottom: 0.6rem;}
+}
+
+.list {
+    &-dot { 
+        > li { @include bullet(.4rem, .4rem, var(--gray-40), 1rem, 50%);}
+    }
+    &-dash { margin-top: 0.6rem; gap: .4rem; font-size: 1.6rem;
+        > li { @include bullet(.5rem, 2px, var(--gray-70), 1.1rem); }
+    }
+    &-sdot {margin-top: 0.6rem;  gap: .3rem; font-size: 1.5rem; 
+        > li { @include bullet(.3rem, .3rem, var(--gray-80), 1rem, 50%); }
+    }
+    
+    &-order { 
+        > li { position: relative; padding-left: 3rem;
+            > i { @include circle(2.2rem, var(--primary-60)); color: var(--white); font-size: 1.4rem; font-weight: 500; @include pos(lt, 0, 0.2rem);}
+        }        
+        &.lg { gap: 0; border-top: 1px solid var(--black); 
+            > li { padding: 3rem 3rem 3rem 12rem; border-bottom: 1px solid var(--border); min-height: 12rem; }
+            i { @include circle(7rem, var(--primary-5)); color: var(--primary-60); font-size: 1.9rem; font-weight: bold; top: 2.4rem;}
+            .title { font-size: 1.9rem;display: block; margin-bottom: 0.8rem;}
+        }
+    }    
+    &-nobullet { 
+        >li { padding-left: 2rem;
+            > * { margin: .6rem 0 .8rem;}
+            > i {margin-left: -2rem; margin-right: 0.5rem;}
+        }
+    } 
+    &-thumb { border-top:2px solid var(--gray-90); 
+        > li { border-bottom:1px solid var(--border); padding: 4rem 2rem;}
+        .item { @include flex(3rem);
+            &-thumb { width: 25.8rem; min-width:25.8rem; 
+                img { border: 1px solid var(--border); }
+            }
+            &-cont {
+                .title { font-size: 1.9rem; color: var(--primary-60); display: block; margin-bottom: 1.2rem;}
+                .s-title { font-size: 1.7rem; color: var(--gray-90); display: block; margin-bottom: 1.2rem; margin-top: 2.8rem;}
+            }
+        }
+    }
+    &-procedure { gap: 2rem;
+        .item { display: flex; border-radius: 0.8rem; overflow: hidden; border: 1px solid var(--border);
+            &-head { background: var(--primary-5); @include flex(1.2rem, center, center); min-width: 26rem; flex-direction: column; padding: 2rem;
+                &.bg2 { background: #eefafd;}
+                .picto { background: var(--white);}
+                .title { font-size: 1.9rem;}
+            }
+            &-cont { flex: 1; padding: 3.8rem; }
+        }
+        >li~li::before { @include icon("\f28f"); font-size: 1.2rem; display: block; text-align: center; margin: 2rem 0;}
+
+    }
+}
+
+@include media($mobile) {
+    .list-order.lg > li { padding-left: 9rem;}
+    .list-nobullet {
+        > li {padding-left: 0;
+            > i { margin-left: 0;}
+        }
+    }    
+    .list-thumb .item-thumb { margin: 0 auto;}
+    .list-thumb .item,
+    .list-procedure .item { flex-direction: column;}
+}
+
+
+
+
+
+
