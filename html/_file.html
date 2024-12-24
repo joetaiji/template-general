@@ -44,15 +44,17 @@
 			~li { border-top: 1px solid #ddd; }
 		}
 		.type {
-			display: block; border: 1px solid #111;
+			display: block; border: 1px solid #111; transform:translateY(5rem); opacity:0; transition:.2s;
 			>a {
 				font-weight: bold; font-size: 14px; text-align: center; display: block; background-color: #889; color: #fff;
 				&::after { content: "\ea4e"; font-family: 'remixicon'; display: inline-block; font-weight: normal; }
 			}
-			&.active {
+			&.active { opacity: 1; transform:translateY(0);}
+			&.open {
 				.depth1 { display: block; }
 				>a::after { transform: rotate(180deg); }
 			}
+			&:first-child { opacity: 1; }
 		}
 		.depth1 {
 			display: none; background-color: #f1f1f5;
@@ -84,6 +86,7 @@
 </style>
 <!-- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script> -->
 <script src='../js/jquery.min.js'></script>
+<script src='../js/func.js'></script>
 <script>
 $(document).ready(function(){
 	$("title").text($("h1").text());
@@ -94,10 +97,18 @@ $(document).ready(function(){
 		e.preventDefault();
 		$(this).parent().toggleClass('active');
 	})
+
+	scrollAC(".topmenu>li");
+
+	/* 마우스 커서 */
+	$(window).on('scroll mousemove', function(e){
+		$('.cursor').css('left', e.pageX + 'px');
+		$('.cursor').css('top', e.pageY + 'px');
+	});
+	$('#gnb li a').hover(function(){
+		$('.cursor').toggleClass('cursor-grow');
+	});
 });
-
-
-
 </script>
 </head>
 <body id="wrap">
@@ -111,14 +122,14 @@ $(document).ready(function(){
 </dl>
 <nav class="nav" id="gnb">
 	<ul id="head_menu" class="topmenu">
-		<li class="type active"><a target="_html" href="">레이아웃</a>
+		<li class="type open"><a target="_html" href="">레이아웃</a>
 			<ul class="depth1">
 				<li><a target="_html" href="index.html">메인<em>08/19</em></a></li>
 				<li><a target="_html" href="sub_layout.html">서브레이아웃<em>08/19</em></a></li>
 				<li><a target="_html" href="../guide/guide_index.html">가이드<em>08/19</em></a></li>
 			</ul>
 		</li>		
-		<li class="type active"><a target="_html" href="">01. 진료안내<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">01. 진료안내<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="">외래진료안내</a>
 					<ul class="depth2">
@@ -191,7 +202,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="01_10.html">병원학교<em>10/24</em></a></li>				
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">02. 진료분야<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">02. 진료분야<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="02_01.html">조현병<em>10/24</em></a></li>
 				<li><a target="_html" href="">기분장애<em></em></a>
@@ -215,7 +226,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="게시판">정신건강 정보</a></li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">03. 정신건강사업<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">03. 정신건강사업<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="">정신건강증진사업<em></em></a>
 					<ul class="depth2">
@@ -273,7 +284,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="03_04.html">충청권트라우마센터<em>10/25</em></a></li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">04. 교육신청<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">04. 교육신청<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="">교육안내/신청<i>iframe</i></a></li>
 				<li><a target="_html" href="">방문교육안내<i>iframe</i></a></li>
@@ -304,7 +315,7 @@ $(document).ready(function(){
 				</li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">05. 소식알림<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">05. 소식알림<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="05_01.html">공지사항<em>08/21</em></a></li>
 				<li><a target="_html" href="게시판">입찰공고<em></em></a></li>
@@ -313,7 +324,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="게시판">자료실<em></em></a></li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">06.고객참여<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">06.고객참여<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="">의료상담 신청</a>
 					<ul class="depth2">
@@ -336,7 +347,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="06_06.html">기타 민원접수 방법<em>10/29</em></a></li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">07. 정보공개<i>완료</i></a>
+		<li class="type open"><a target="_html" href="">07. 정보공개<i>완료</i></a>
 			<ul class="depth1">
 				<li><a target="_html" href="">정보공개제도안내<em></em></a>
 					<ul class="depth2">
@@ -373,7 +384,7 @@ $(document).ready(function(){
 				<li><a target="_html" href="07_07.html">보건복지 모바일앱 종합안내<em>10/29</em><i>보건복지부 페이지 아이프레임연결</i></a></li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">08. 병원소개</a>
+		<li class="type open"><a target="_html" href="">08. 병원소개</a>
 			<ul class="depth1">
 				<li><a target="_html" href="">병원장소개<em></em></a>
 					<ul class="depth2">
@@ -427,7 +438,7 @@ $(document).ready(function(){
 				</li>
 			</ul>
 		</li>
-		<li class="type active"><a target="_html" href="">09. 이용안내</a>
+		<li class="type open"><a target="_html" href="">09. 이용안내</a>
 			<ul class="depth1">
 				<li><a target="_html" href="09_01.html">홈페이지이용안내<em>11/01</em></a></li>
 				<li><a target="_html" href="">개인정보처리방침</a>
@@ -445,30 +456,5 @@ $(document).ready(function(){
 </nav>
 <a href="#wrap" class="go-top fixed"><i class="ri-arrow-up-s-line"></i><span>TOP</span></a>
 
-<script>
-//마우스 커서
-let mouseCursor = document.querySelector(".cursor");
-let navLinks = document.querySelectorAll("#gnb li a"); //메뉴 링크
-//window 객체에 scroll & mouse 이벤트를 추가하고 cursor함수 실행되도록 함
-window.addEventListener("scroll", cursor);
-window.addEventListener("mousemove", cursor);
-//커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시킴
-function cursor(e) {
-	mouseCursor.style.left = e.pageX + "px";
-	mouseCursor.style.top = e.pageY + "px";
-}
-
-navLinks.forEach((link) => {
-    link.addEventListener("mouseover", () => {
-      mouseCursor.classList.add("cursor-grow");
-      //link.classList.add("hovered-link");
-    });
-    link.addEventListener("mouseleave", () => {
-      mouseCursor.classList.remove("cursor-grow");
-      mouseCursor.style.zIndex = "1000";
-      //link.classList.remove("hovered-link");
-    });
-});
-</script>
 </body>
 </html>

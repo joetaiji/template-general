@@ -270,6 +270,21 @@ function tabs(el, cont) {
     }
 }
 
+/*  ------------------------------------------------------------------------------------
+*   스크롤에 따라 콘텐츠 활성화                            scrollAC(".main .section")
+------------------------------------------------------------------------------------- */
+function scrollAC(cont) {
+    const $cont = $(cont)	
+	$(window).on("load scroll", function() {    
+		$cont.each(function (i) {
+			contTop = $(this)[0].getBoundingClientRect().top
+			//콘텐츠 Active
+			contTop < $(window).height()*0.75 ? $(this).addClass(AC) : $(this).removeClass(AC)
+		})        
+		
+	})
+}
+
 /* -------------------------------------------------------------------------------------
 *   아코디언 - details로 수정( ※name속성을 W3C Validation에서 오류로 인식하기 때문에 data-name으로 그룹설정)
 ------------------------------------------------------------------------------------- */
