@@ -40,7 +40,7 @@ $url: "../img" !default;
 
 //hover 
 @mixin hover {
-	&:hover { transition: 0.2s; background-color: var(--bg-5); }
+	&:hover { transition: 0.2s; background-color: var(--secondary-5); }
 }
 
 //bullet

@@ -163,7 +163,7 @@ header-top
 #header-top {
   position: relative;
   z-index: 1;
-  background: var(--bg-5);
+  background: var(--secondary-5);
 }
 #header-top .inner {
   display: flex;
@@ -271,7 +271,7 @@ html.scroll-no {
 }
 .drop-wrap .drop-menu .item-link:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .drop-wrap .drop-menu .drop-btm-btn {
   border-top: 1px solid var(--gray-30);
@@ -342,7 +342,7 @@ header
 }
 .header .etc-ul .zoom-drop .drop-list > li.active .item-link {
   color: var(--primary-70);
-  background: var(--bg-5);
+  background: var(--primary-5);
   font-weight: 700;
 }
 .header .etc-ul .zoom-drop .drop-list > li.active .item-link::before {
@@ -417,7 +417,7 @@ header
 }
 .header .header-in .head-body .btn-navi:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .header .header-in .head-body .btn-navi::before {
   display: inline-flex;
@@ -614,7 +614,7 @@ header
 }
 .header .m-gnb-wrap .m-gnb-in .m-gnb-body {
   flex: 1;
-  background: var(--bg-5);
+  background: var(--primary-5);
   position: relative;
 }
 .header .m-gnb-wrap .m-gnb-in .m-gnb-body .m-gnb-menu .topmenu-all > li > a {
@@ -752,7 +752,7 @@ header
   width: 100%;
 }
 .header .topmenu > li.active > a {
-  background: var(--bg-10);
+  background: var(--secondary-10);
   color: var(--primary-70);
 }
 .header .topmenu > li.active > a::after {
@@ -765,7 +765,7 @@ header
   overflow: visible;
 }
 .header .topmenu > li.active .submenu > ul {
-  background: var(--bg-5);
+  background: var(--primary-5);
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
 }
@@ -1115,7 +1115,7 @@ snb
 }
 .left-menu .list .head_menu_depth > li > a:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .left-menu .list .head_menu_depth > li.active > a {
   background: var(--primary-80);
@@ -1131,7 +1131,7 @@ snb
   visibility: visible;
   height: auto;
   padding: 2rem 1.6rem;
-  background: var(--gray-10);
+  background: var(--gray-5);
   border-bottom: 1px solid var(--gray-30);
 }
 .left-menu .list .head_menu_depth > li.active + li > a::before {
@@ -1250,7 +1250,7 @@ content 공통
 }
 .contents .print-btn:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .contents .page-contents {
   color: var(--fontColor);
@@ -1293,7 +1293,7 @@ content 공통
 }
 .go-top:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .go-top.fixed {
   opacity: 1;
@@ -1339,7 +1339,7 @@ footer
 }
 .footer .foot-quick .inner .link:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .footer .pop-foot-links {
   display: grid;
@@ -1365,7 +1365,7 @@ footer
 }
 .footer .pop-foot-links > li a:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .footer .pop-foot-links > li a::before {
   left: 0.5rem;
@@ -1485,7 +1485,7 @@ footer
 }
 .footer .f-cnt .f-link .link-sns a:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .footer .f-cnt .f-link .link-sns .instagram {
   background-image: url(../img/layout/foot_ico_sns_instagram.png);
@@ -1526,7 +1526,7 @@ footer
 }
 .footer .f-btm-text .f-menu a:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .footer .f-btm-text .point {
   font-weight: 700;

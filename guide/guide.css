@@ -90,6 +90,7 @@
 .intro footer { width: 100%; font-size: 1.5rem; padding: 1.5rem; background-color: #616771; color: rgba(255, 255, 255, 0.5); text-align: center; }
 
 .snb { position: sticky; top: 0;}
+/* 왼쪽서브메뉴 sticky 때문에 본문 콘텐츠에 relative가 적용된 콘텐츠의 색상이 흐려지는 현상이 있음 */
 .guide-article{	scroll-margin-top:5rem; margin-bottom: 10rem; 
     code {background: var(--gray); padding:0.5rem 1rem; font-family:Menlo, Consolas, Liberation Mono, Lucida Console, monospace; font-size: 1.3rem; color:#1b1b1b; margin-left: 1rem; }
 }

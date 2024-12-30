@@ -14,7 +14,7 @@
 .heading-m small {
   font-weight: 400;
   font-size: 1.7rem;
-  background: var(--bg-5);
+  background: var(--primary-5);
   padding: 0.2rem 1rem;
   border-radius: 0.4rem;
 }
@@ -1009,7 +1009,8 @@ form
   border: 1px solid var(--gray-40);
 }
 .depth4 > ul > li a:hover, .depth4 > ul > li button:hover {
-  background-color: var(--gray-10);
+  transition: 0.2s;
+  background-color: var(--secondary-5);
 }
 .depth4 > ul > li.active a, .depth4 > ul > li.active button {
   border: 0.3rem solid var(--primary-70);
@@ -1102,7 +1103,7 @@ form
 }
 .accordion details .aco-title:hover {
   text-decoration: none;
-  background: var(--bg-5);
+  background: var(--primary-5);
   transition: 0.2s;
 }
 .accordion details .aco-title .notice {
@@ -1667,7 +1668,7 @@ form
 }
 .btn-txt:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .btn-txt::after {
   margin-left: 0;

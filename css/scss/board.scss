@@ -251,7 +251,7 @@
 /* =======================================================================================
 게시판 상단 콘텐츠
 ======================================================================================= */
-.announce-info { background: var(--bg-5); padding: 3rem; margin-bottom: 4rem;
+.announce-info { background: var(--primary-5); padding: 3rem; margin-bottom: 4rem;
 	ul { @include flex(4rem, center);
 		li {@include flex(1.2rem, center);}
 		strong {@include flex(.5rem, center);}

@@ -42,7 +42,7 @@
 }
 .main-vban-wrap .swiper-button:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .main-vban-wrap .swiper-controls {
   position: absolute;
@@ -474,7 +474,7 @@
 }
 .main-news .popupzone .swiper-button:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .main-news .popupzone .swiper-controls {
   position: absolute;
@@ -494,7 +494,7 @@
 }
 .main-news .popupzone .swiper-autoplay button:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .main-news .popupzone .item {
   display: block;
@@ -533,7 +533,7 @@ etc_site
 }
 .site-banner .swiper-button:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .site-banner .item-list .item {
   display: flex;

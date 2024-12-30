@@ -715,7 +715,7 @@
 }
 .gallery-slide .swiper-button:hover:hover {
   transition: 0.2s;
-  background-color: var(--bg-5);
+  background-color: var(--secondary-5);
 }
 .gallery-slide:has(.thumb) .swiper-button {
   top: calc(50% - 14rem);
@@ -734,7 +734,7 @@
 게시판 상단 콘텐츠
 ======================================================================================= */
 .announce-info {
-  background: var(--bg-5);
+  background: var(--primary-5);
   padding: 3rem;
   margin-bottom: 4rem;
 }

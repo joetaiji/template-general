@@ -18,13 +18,13 @@ http://scripts.sil.org/OFL
 	font-family: 'Pretendard GOV';
 	font-weight: 500;
 	font-display: swap;
-	src: local('Pretendard GOV Medium'), url("PretendardGOV-Medium.subset.woff2") format('woff2'), url("PretendardGOV-Medium.subset.woff") format('woff');
+	src: local('Pretendard GOV Medium'), url("PretendardGOV-Medium.subset.woff2") format('woff2'),  url("PretendardGOV-Medium.subset.woff") format('woff');
 }
 
 @font-face {
 	font-family: 'Pretendard GOV';
 	font-weight: 400;
 	font-display: swap;
-	src: local('Pretendard GOV Regular'), url("PretendardGOV-Regular.subset.woff2") format('woff2'), url("PretendardGOV-Regular.subset.woff2") format('woff');
+	src: local('Pretendard GOV Regular'), url("PretendardGOV-Regular.subset.woff2") format('woff2'),  url("PretendardGOV-Regular.subset.woff2") format('woff');
 	
 }

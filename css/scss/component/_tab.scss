@@ -17,9 +17,7 @@
 .depth4 {		
 	>ul{
 		>li { flex: 1; 
-			a, button { height: 5.8rem; background-color: var(--white);	border: 1px solid var(--gray-40); 
-				&:hover { background-color: var(--gray-10); }
-			}
+			a, button { height: 5.8rem; background-color: var(--white);	border: 1px solid var(--gray-40); @include hover;}
 			
 			&.active { 
 				a, button { border: .3rem solid var(--primary-70); color: var(--primary-70); }

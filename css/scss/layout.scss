@@ -48,7 +48,7 @@ popup-wrap
 /* =======================================================================================
 header-top
 ======================================================================================= */
-#header-top { position: relative; z-index: 1; background: var(--bg-5);	
+#header-top { position: relative; z-index: 1; background: var(--secondary-5);	
 	.inner { @include flex(.4rem 1.6rem, center); flex-wrap: wrap; padding: .8rem .8rem .8rem 3.2rem; position: relative; }
 	.nuri-txt { font-size: 1.5rem; line-height: 1; @include flex(null, center);
 		&::before { display: inline-flex; content: ""; width: 2.4rem; height: 1.6rem;background: url(#{$url}/layout/top_ban_ico_flag.svg) no-repeat center/contain; @include pos(lt, 0, auto);
@@ -103,7 +103,7 @@ header
 			.drop-menu { width: 15rem; }
 			.drop-list { 			
 				>li.active { 
-					.item-link{ color: var(--primary-70); background: var(--bg-5); font-weight: 700;
+					.item-link{ color: var(--primary-70); background: var(--primary-5); font-weight: 700;
 						&::before { color:#fff; background: var(--primary-70);}
 					}
 				}
@@ -192,7 +192,7 @@ header
 				}
 				&-close { @include circle(2.4rem, var(--gray-50)); @include pos(rt, 1.6rem, 1.6rem); color: var(--white);}
 			}
-			.m-gnb-body { flex:1; background: var(--bg-5); position: relative;
+			.m-gnb-body { flex:1; background: var(--primary-5); position: relative;
 				.m-gnb-menu { 
 					.topmenu-all { 
 						>li{ 
@@ -241,11 +241,11 @@ header
 				&.active::before { width: 100% }
 			}
 			&.active {
-				>a { background: var(--bg-10); color: var(--primary-70);
+				>a { background: var(--secondary-10); color: var(--primary-70);
 					&::after {transform: rotate(180deg);}	
 				}
 				.submenu { @include active(visible); 
-					> ul { background: var(--bg-5); padding-top: 1.6rem; padding-bottom: 1.6rem; }
+					> ul { background: var(--primary-5); padding-top: 1.6rem; padding-bottom: 1.6rem; }
 				}
 			}
 		}
@@ -370,7 +370,7 @@ $snbW: 23rem;
 					>a { background: var(--primary-80); color: var(--white); font-weight: 700; margin:-1px;
 						&::before { display: none;}
 					}
-					>ul { @include active; padding: 2rem 1.6rem; background: var(--gray-10); border-bottom: 1px solid var(--gray-30); }
+					>ul { @include active; padding: 2rem 1.6rem; background: var(--gray-5); border-bottom: 1px solid var(--gray-30); }
 					+ li>a::before { display: none;}
 				}
 				&.is-depth3 { @extend %caret; }

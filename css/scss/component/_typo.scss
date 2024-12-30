@@ -4,7 +4,7 @@
 
 .heading {	
 	&-m { font-size: 2.5rem; color: var(--primary-60); margin: 3.4rem 0 1.6rem 0; @include flex(1rem, center);
-		small { font-weight: 400; font-size: 1.7rem;background: var(--bg-5); padding: 0.2rem 1rem; border-radius: 0.4rem;}
+		small { font-weight: 400; font-size: 1.7rem;background: var(--primary-5); padding: 0.2rem 1rem; border-radius: 0.4rem;}
 	}
 	&-s { 
 		font-size: 2.1rem; margin: 2.4rem 0 1.6rem; @include bullet(1.2rem, 1.2rem, #fff, 1rem);

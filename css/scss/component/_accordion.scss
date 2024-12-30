@@ -6,7 +6,7 @@
 		&:first-of-type { border-top: 1px solid var(--gray-90);}
 		.aco-title {
 			@include flex($ai:center); border-bottom: 1px solid var(--gray-30); padding: 1rem 2rem; cursor: pointer;
-			&:hover { text-decoration:none; background: var(--bg-5); transition: 0.2s;}
+			&:hover { text-decoration:none; background: var(--primary-5); transition: 0.2s;}
 			.notice { font-size: 1.5rem; background: var(--gray-5); @include flex(null, center, center, column); width: 6rem; min-width:6rem; height: 5.7rem; margin: -1rem 2rem -1rem -2rem; font-size: 1.3rem; font-weight: 700; color: var(--gray-70);
 				&::before { @include icon("\f2a2"); font-size: 1.7rem;}
 			}

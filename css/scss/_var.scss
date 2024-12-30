@@ -8,68 +8,34 @@
     --fontColor : var(--gray-70);
 
 	//무채색   
-    --black : #000;
-    --gray-5 : #F8F8F8;
-	--gray-10 : #F0F0F0;
-	--gray-20 : #E4E4E4;
-	--gray-30 : #D8D8D8;
-	--gray-40 : #C6C6C6;
-	--gray-50 : #8E8E8E;
-	--gray-60 : #717171;
-	--gray-70 : #555555;
-    --gray-80 : #2D2D2D;
-    --gray-90 : #1D1D1D;    
+    --black : #000;    
     --white : #fff;
 
-    //블루톤 그레이
-    --bg-5 : #EDF1F5;
-    --bg-10 : #CDD7E4;
-	
-	//칼라
+    //칼라
     --primary : var(--primary-50); 
     --secondary : var(--secondary-50); 
     --gray : var(--gray-5);
     --border : var(--gray-30);
-    --bg : var(--bg-5);
+    --bg : var(--primary-5);
     --point : var(--point-60); 
     --danger : #EB003B; 
     --warning : #FFB724;     
     --success : #008A1E;     
     --information : #2768FF;
 	
-	//칼라농도    
-    --primary-5: #eff5ff;
-    --primary-10: #d3e1fb;
-    --primary-20: #a7c4f7;
-    --primary-30: #7ca6f3;
-    --primary-40: #5089ef;
-    --primary-50: #2466ba; //246beb;
-    --primary-60: #1D56BC;
-    --primary-70: #16408d;
-    --primary-80: #0e2b5e;
-    --primary-90: #07152f;
-
-	--secondary-5: #edf1f5;
-    --secondary-10: #cdd7e4;
-    --secondary-20: #b4c4d6;
-    --secondary-30: #99b0cb;
-    --secondary-40: #2a5c96;
-    --secondary-50: #003675;
-    --secondary-60: #002b5e;
-    --secondary-70: #002046;
-    --secondary-80: #00162f;
-    --secondary-90: #000b17;
-  
-    --point-5: #FDF2F3;
-    --point-10: #FAD1D3;
-    --point-20: #F5A3A8;
-    --point-30: #F1747C;
-    --point-40: #EC4651;
-    --point-50: #E71825;
-    --point-60: #B9131E;
-    --point-70: #8B0E16;
-    --point-80: #5C0A0F;
-    --point-90: #2E0507;
+	$colors: ("--gray": #8e8e8e, "--primary": #246beb, "--secondary": #003675, "--point": #E71825);
+	@each $name, $color in $colors {		
+		#{$name}-5: color-mix(in srgb, var(#{$name}-50), #f9fbfc 95%); 
+		#{$name}-10: color-mix(in srgb, var(#{$name}-50), white 80%); 
+		#{$name}-20: color-mix(in srgb, var(#{$name}-50), white 60%); 
+		#{$name}-30: color-mix(in srgb, var(#{$name}-50), white 40%); 
+		#{$name}-40: color-mix(in srgb, var(#{$name}-50), white 20%);
+		#{$name}-50: $color; 
+		#{$name}-60: color-mix(in srgb, var(#{$name}-50), black 20%); 
+		#{$name}-70: color-mix(in srgb, var(#{$name}-50), black 40%); 
+		#{$name}-80: color-mix(in srgb, var(#{$name}-50), black 60%); 
+		#{$name}-90: color-mix(in srgb, var(#{$name}-50), black 80%); 
+	}	
     
 	//sns
 	--facebook : #1648AD;
