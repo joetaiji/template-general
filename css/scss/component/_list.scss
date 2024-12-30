@@ -48,7 +48,7 @@
         .item { display: flex; border-radius: 0.8rem; overflow: hidden; border: 1px solid var(--border);
             &-head { background: var(--primary-5); @include flex(1.2rem, center, center); min-width: 26rem; flex-direction: column; padding: 2rem;
                 &.bg2 { background: #eefafd;}
-                .picto { background: var(--white);}
+                .icon { background: var(--white);}
                 .title { font-size: 1.9rem;}
             }
             &-cont { flex: 1; padding: 3.8rem; }

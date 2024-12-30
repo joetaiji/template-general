@@ -7,7 +7,6 @@ $(function () {
 	layerPopup('.header .btn-navi.sch') 	//통합검색
 
     gnb()	//gnb메뉴 
-	mGnb()	//모바일 gnb메뉴
 
 	layerPopup('.foot-quick .link')		//푸터 관련사이트
 

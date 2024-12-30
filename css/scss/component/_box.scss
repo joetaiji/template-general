@@ -1,9 +1,10 @@
 @import "../mixin";
 
 /* box */
+$box-var : .4rem;
 .box { padding: 3.2rem 3.6rem;         
     &.bg { background-color: var(--gray); 
-        .picto { background: var(--white);}
+        .icon { background: var(--white);}
     }
     &.bg-white { background-color: var(--white); }
     &.border { border: 1px solid var(--border);}       
@@ -11,43 +12,21 @@
     &.narrow { padding: 1.6rem 2rem; 
         &.round { border-radius: 0.8rem;}
     }
-    &.flex-box { @include flex(3rem, center); }   
-    //&.vertical { @include flex(2rem, center, $fd:column); }
-    &.lg { padding-top: 7rem; padding-bottom: 7rem;} 
-    .picto-wrap { text-align: center;}        
+    &:has(.icon) { @include flex(3rem, center); }   
+	&.col { justify-content: center; text-align: center;
+		.icon { margin: 0 auto; }
+	}
+    .icon-wrap { text-align: center;}     
     .cont { flex: 1; 
         .list-dot { display: inline-block; margin-top: 0;}
     }  
-    .title { font-size: 2.4rem; display: block; color: var(--gray-90); line-height: 1.2;
-        &:has(+*) {margin-bottom: 1rem;}
-        small { color: var(--gray-70);}
-    }  
-    .s-title { font-size: 1.7rem; display: block; color: var(--gray-90); line-height: 1.2;
-        &:has(+*) {margin-bottom: 1rem;}
-    }
-    
-    //인포용
-    &.border-top { margin-bottom: 3.4rem; 
-        border-top: 2px solid; border-image: linear-gradient(to right, var(--primary-60), var(--primary-40)); border-image-slice: 1; background: var(--gray);
-        img { margin: .4rem auto 0;}
-        .s-title { font-size: 1.9rem;}
-        &:has(ul) { align-items: flex-start;}
-        .list-dot>li::before { background: var(--gray-70);}
-    } 
-    //공지용
-    &.pattern { margin-bottom: 4rem; border:9px solid; border-image: url('#{$url}/contents/box_pattern.gif') 9 / 9px round;
-        .picto { width: 10rem; height: 10rem;}
-        .s-title { font-size: 1.9rem;}
-    }
-    //타이틀용    
-    &.title-box { border: 1px solid #b8d7fd; background: linear-gradient(to right, #e5f2fd, #f2f9ff);margin-bottom: 4rem; padding: 4.8rem;
-        .picto { background: none; width: auto; height: auto;
-            img { max-height: initial;}
-        }
-        .cont {
-            .title { font-size: 2.8rem;} 
-        }
-    }
+	[class^=title-] { display: block; color: var(--gray-90); 
+		&:has(+*) {margin-bottom: 1rem;}
+	}
+    .title-l { font-size: 2.4rem; } 
+	.title-m { font-size: 2rem; } 
+    .title-s { font-size: 1.7rem; }
+
     //준비용
     &.ready { padding: 8rem; @include flex(null, center, center, column);
         .title { font-size: 3.2rem; margin-top: 2.8rem;}
@@ -74,13 +53,13 @@
 
 
 @include media($mobile) {
-	.box { padding: 1.6rem 1.2rem; 
-        &.flex-box { flex-direction: column;}
-        &.narrow { padding: 1rem 1.5rem; }
+	.box { padding: 1.6rem 1.8rem; 
+        &:has(.icon) { flex-direction: column;}
+        &.narrow { padding: .8rem 1rem; }
         &.title-box { padding: 2.4rem;
-            .picto { display: none;}
+            .icon { display: none;}
         }
-        .picto + .cont { text-align: center; 
+        .icon + .cont { text-align: center; 
           .list-dot { text-align: left;}  
         }
     }  

@@ -33,7 +33,10 @@
 	&.horizontal {
 		tbody th, td { text-align: left; padding-left: 2rem; }
 	}
-	.unit { text-align: right; font-size: .933em; margin: 0 0 .5rem }
+	.unit { text-align: right; font-size: .933em; padding: 0 0 .8rem }
+}
+[class*='heading-'] + .table { position: relative;
+	.unit { position: absolute; right: 0; top: 0; transform: translateY(-100%); }
 }
 
 /* row-line */
@@ -67,7 +70,8 @@
 
 @include media($mobile) {	
 	.table_scroll,
-	.responsive  { overflow-x: auto; padding-top: 4rem; background: url('#{$url}/layout/scroll_hand.gif') right top no-repeat;
+	.responsive  { overflow-x: auto; padding-top: 4rem; background: url('#{$url}/layout/scroll_hand.gif') right top no-repeat; position: relative;
+		.unit { position: absolute; right: auto!important; left: 0; top: 0; transform: none!important;}
 		table { min-width: 700px; }
 	}
 

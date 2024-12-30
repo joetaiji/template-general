@@ -263,7 +263,7 @@ $contents : $url + "/contents";
 ======================================================================================= */
 .law { 
     a:hover{ background: var(--gray-5); transition: 0.2s;}
-    /*.picto { width: 3.6rem; min-width: 3.6rem; height: 3.6rem; margin-left: auto;}*/
+    /*.icon { width: 3.6rem; min-width: 3.6rem; height: 3.6rem; margin-left: auto;}*/
 } 
 .infoorg-pop { display: none; width:54rem; max-width:calc(100% - 2rem); @include pos(lt, 50%, 50%); z-index: 2; background: #fff; border: 1px solid var(--gray-90); box-shadow: 2rem 2rem 2rem rgba(0,0,0,0.1);
     
@@ -498,7 +498,7 @@ $contents : $url + "/contents";
     figure { float:right; margin-left: 2rem; }
     &::after { content: ''; display: block; clear:both; }
     .phone-box { background: linear-gradient( 24deg, #2269c5, #128aaf); padding: 2rem; color: var(--white); text-align: center; border-radius: 1.2rem; position: relative; margin: -4rem 2rem 0; letter-spacing: -1px;
-        .s-picto { background: var(--white); color: var(--primary); font-size: 2rem;}
+        .s-icon { background: var(--white); color: var(--primary); font-size: 2rem;}
     }    
 }
 
@@ -597,7 +597,7 @@ $contents : $url + "/contents";
 //오시는길
 .map { 
     &-info { 
-        .s-picto { background: var(--primary-50); color: var(--white); font-size: 2rem;}
+        .s-icon { background: var(--primary-50); color: var(--white); font-size: 2rem;}
         &-text { gap: 2rem; }        
         &-btn { margin-left: auto; @include flex(1.2rem, $fd:column);
             .btn { height: auto; border:1px solid var(--border);

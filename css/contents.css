@@ -773,7 +773,7 @@
 07. 정보공개
 ======================================================================================= */
 .law {
-  /*.picto { width: 3.6rem; min-width: 3.6rem; height: 3.6rem; margin-left: auto;}*/
+  /*.icon { width: 3.6rem; min-width: 3.6rem; height: 3.6rem; margin-left: auto;}*/
 }
 .law a:hover {
   background: var(--gray-5);
@@ -1602,7 +1602,7 @@
   margin: -4rem 2rem 0;
   letter-spacing: -1px;
 }
-.depart-img-area .phone-box .s-picto {
+.depart-img-area .phone-box .s-icon {
   background: var(--white);
   color: var(--primary);
   font-size: 2rem;
@@ -1904,7 +1904,7 @@
   border: 0;
 }
 
-.map-info .s-picto {
+.map-info .s-icon {
   background: var(--primary-50);
   color: var(--white);
   font-size: 2rem;
