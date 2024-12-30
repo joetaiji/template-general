@@ -353,7 +353,7 @@
 	
 							<h5 class="heading-s">.table : 표 기본 가운데 정렬</h5>
 							<div class="table responsive">
-								<div class="unit">(단위 : 원)</div>
+								<span class="unit">(단위 : 원)</span>
 								<table>
 									<caption>표제목 - 사업별구분, 소속</caption>
 									<colgroup>
@@ -1124,15 +1124,7 @@
 	
 							<h4 class="heading-m">슬라이더(swiper)</h4>
 							<div class="item-cont swiper swiper-container"> 
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<a href=""  class="item">
-											<em class="badge">d-6</em>
-											<strong class="date">08.10(목)</strong>
-											<p class="desc">2학기 등록고지 기한</p>
-											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
-										</a>
-									</div>
+								<div class="swiper-wrapper">									
 									<div class="swiper-slide">
 										<a href=""  class="item active">
 											<em class="badge">Now</em>
@@ -1144,7 +1136,7 @@
 									<div class="swiper-slide">
 										<a href=""  class="item">
 											<em class="badge">d-6</em>
-											<strong class="date">08.10(목)</strong>
+											<strong class="date">08.11(금)</strong>
 											<p class="desc">2학기 등록고지 기한</p>
 											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
 										</a>
@@ -1152,7 +1144,7 @@
 									<div class="swiper-slide">
 										<a href=""  class="item">
 											<em class="badge">d-6</em>
-											<strong class="date">08.10(목)</strong>
+											<strong class="date">08.14(월)</strong>
 											<p class="desc">2학기 등록고지 기한</p>
 											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
 										</a>
@@ -1160,7 +1152,23 @@
 									<div class="swiper-slide">
 										<a href=""  class="item">
 											<em class="badge">d-6</em>
-											<strong class="date">08.10(목)</strong>
+											<strong class="date">08.15(화)</strong>
+											<p class="desc">2학기 등록고지 기한</p>
+											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
+										</a>
+									</div>
+									<div class="swiper-slide">
+										<a href=""  class="item">
+											<em class="badge">d-6</em>
+											<strong class="date">08.15(수)</strong>
+											<p class="desc">2학기 등록고지 기한</p>
+											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
+										</a>
+									</div>
+									<div class="swiper-slide">
+										<a href=""  class="item">
+											<em class="badge">d-6</em>
+											<strong class="date">08.15(목)</strong>
 											<p class="desc">2학기 등록고지 기한</p>
 											<span class="view">자세히보기 <i class="ri-arrow-right-s-line"></i></span>
 										</a>
@@ -1177,10 +1185,10 @@
 								<div class="swiper-controls">
 									<div class="swiper-pagination"></div>
 									<div class="swiper-autoplay">
-										<button class="swiper-button-pause active" data-action="stop">
+										<button class="swiper-button-pause active" data-swiper="swiperSlide">
 											<i class="ri-pause-fill"></i><span class="sr-only">정지</span>
 										</button>
-										<button class="swiper-button-start" data-action="start">
+										<button class="swiper-button-start" data-swiper="swiperSlide">
 											<i class="ri-play-line"></i><span class="sr-only">시작</span>
 										</button>
 									</div>
@@ -1189,7 +1197,7 @@
 							<!-- //item-cont swiper -->
 	
 							<script>
-								const swiperSlider = new Swiper(".swiper",  {
+								const swiperSlide = new Swiper(".swiper",  {
 									slidesPerView: 2,	
 									spaceBetween: 10,
 									/* centeredSlides: true, */
@@ -1204,8 +1212,10 @@
 									pagination: {
 										el: '.swiper-pagination',
 										clickable: true,
-										//type: 'fraction'
-									},
+										renderBullet: function (index, className) {
+											return '<span class="' + className + '" role="button"> 슬라이드이름 ' + (index + 1) + "번 슬라이드로 이동</span>";
+										}
+									},									
 									navigation: {
 										nextEl: '.swiper-button-next',
 										prevEl: '.swiper-button-prev',
@@ -1217,6 +1227,15 @@
 										}		
 									}
 								});
+
+								$(".swiper-autoplay button").on("click", function(){
+									//슬라이드가 여러개여서 배열로 컨트롤할때
+									//let slideType = $(this).data("swiper");
+									//var swiperSlide = slides[slideType]; 
+									$(this).removeClass(AC).siblings().addClass(AC);
+									$(this).hasClass("swiper-button-pause") ? swiperSlide.autoplay.stop() : swiperSlide.autoplay.start();
+								})
+
 
 								//썸네일 연결시 포커스 클릭
 								$(function(){
