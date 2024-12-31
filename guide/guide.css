@@ -92,12 +92,12 @@
 .snb { position: sticky; top: 0;}
 /* 왼쪽서브메뉴 sticky 때문에 본문 콘텐츠에 relative가 적용된 콘텐츠의 색상이 흐려지는 현상이 있음 */
 .guide-article{	scroll-margin-top:5rem; margin-bottom: 10rem; 
-    code {background: var(--gray); padding:0.5rem 1rem; font-family:Menlo, Consolas, Liberation Mono, Lucida Console, monospace; font-size: 1.3rem; color:#1b1b1b; margin-left: 1rem; }
+    code {background: var(--gray-5); padding:0.5rem 1rem; font-family:Menlo, Consolas, Liberation Mono, Lucida Console, monospace; font-size: 1.3rem; color:#1b1b1b; margin-left: 1rem; }
 }
 .color-depth { display: flex; margin-top: 1rem;
-    li { flex: 1; padding: 1rem; word-break: break-all;}
-    &.color li:nth-last-child(-n+6),
-    &.gray li:nth-last-child(-n+5) { color: var(--white);}	
+    li { flex: 1; padding: 1rem; word-break: break-all; font-size: 1.5rem;
+		&:nth-last-child(-n+5) { color: var(--white);}	
+	}    
 }
 code { background: var(--gray-10);}
 

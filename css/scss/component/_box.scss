@@ -3,7 +3,7 @@
 /* box */
 $box-var : .4rem;
 .box { padding: 3.2rem 3.6rem;         
-    &.bg { background-color: var(--gray); 
+    &.bg { background-color: var(--gray-5); 
         .icon { background: var(--white);}
     }
     &.bg-white { background-color: var(--white); }

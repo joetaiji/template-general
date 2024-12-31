@@ -304,7 +304,7 @@ $contents : $url + "/contents";
 ======================================================================================= */
 //인사말
 .greeting { position: relative;
-    .g-wrap{background: var(--gray) url(#{$contents}/greeting_bg.png) right 7rem bottom 0 no-repeat; padding: 8rem; }
+    .g-wrap{background: var(--gray-5) url(#{$contents}/greeting_bg.png) right 7rem bottom 0 no-repeat; padding: 8rem; }
     .g-hi { font-size: 3.2rem; margin-bottom: 4rem;  position: relative;}
     .g-cont { 
         p ~ p { margin-top: 3rem;}

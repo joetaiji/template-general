@@ -898,7 +898,7 @@
   position: relative;
 }
 .greeting .g-wrap {
-  background: var(--gray) url(../img/contents/greeting_bg.png) right 7rem bottom 0 no-repeat;
+  background: var(--gray-5) url(../img/contents/greeting_bg.png) right 7rem bottom 0 no-repeat;
   padding: 8rem;
 }
 .greeting .g-hi {

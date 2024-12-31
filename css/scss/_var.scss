@@ -5,45 +5,40 @@
     --icon : "remixicon", sans-serif;
     --fontSize : 1.7rem;
     --letterSpace : -.025em;
-    --fontColor : var(--gray-70);
+    --fontColor : var(--gray-90);
 
 	//무채색   
     --black : #000;    
-    --white : #fff;
-
-    //칼라
-    --primary : var(--primary-50); 
-    --secondary : var(--secondary-50); 
-    --gray : var(--gray-5);
-    --border : var(--gray-30);
-    --bg : var(--primary-5);
-    --point : var(--point-60); 
-    --danger : #EB003B; 
-    --warning : #FFB724;     
-    --success : #008A1E;     
-    --information : #2768FF;
+    --white : #fff; 
 	
 	$colors: ("--gray": #8e8e8e, "--primary": #246beb, "--secondary": #003675, "--point": #E71825);
-	@each $name, $color in $colors {		
-		#{$name}-5: color-mix(in srgb, var(#{$name}-50), #f9fbfc 95%); 
-		#{$name}-10: color-mix(in srgb, var(#{$name}-50), white 80%); 
-		#{$name}-20: color-mix(in srgb, var(#{$name}-50), white 60%); 
-		#{$name}-30: color-mix(in srgb, var(#{$name}-50), white 40%); 
-		#{$name}-40: color-mix(in srgb, var(#{$name}-50), white 20%);
+	@each $name, $color in $colors {	
+		#{$name}: $color;	
+		#{$name}-5: color-mix(in srgb, var(#{$name}), #f9fbfc 95%); 
+		#{$name}-10: color-mix(in srgb, var(#{$name}), white 80%); 
+		#{$name}-20: color-mix(in srgb, var(#{$name}), white 60%); 
+		#{$name}-30: color-mix(in srgb, var(#{$name}), white 40%); 
+		#{$name}-40: color-mix(in srgb, var(#{$name}), white 20%);
 		#{$name}-50: $color; 
-		#{$name}-60: color-mix(in srgb, var(#{$name}-50), black 20%); 
-		#{$name}-70: color-mix(in srgb, var(#{$name}-50), black 40%); 
-		#{$name}-80: color-mix(in srgb, var(#{$name}-50), black 60%); 
-		#{$name}-90: color-mix(in srgb, var(#{$name}-50), black 80%); 
-	}	
+		#{$name}-60: color-mix(in srgb, var(#{$name}), black 20%); 
+		#{$name}-70: color-mix(in srgb, var(#{$name}), black 40%); 
+		#{$name}-80: color-mix(in srgb, var(#{$name}), black 60%); 
+		#{$name}-90: color-mix(in srgb, var(#{$name}), black 80%); 
+	}
+	
+	//칼라    
+	--danger : #EB003B; 
+	--warning : #FFB724;     
+	--success : #008A1E;
+	--information : #2768FF;
     
 	//sns
-	--facebook : #1648AD;
-    --twitter  : #1DA1F2;
-    --blog    : #179911;
+	--facebook 	: #1648AD;
+    --twitter  	: #1DA1F2;
+    --blog    	: #179911;
     --kakaotalk : #FAE301;
-    --instagram    : #E5266D;
-    --youtube  : #E52C26;
+    --instagram : #E5266D;
+    --youtube  	: #E52C26;
 
 	//header 높이
     --headerHeight : 17.2rem;
